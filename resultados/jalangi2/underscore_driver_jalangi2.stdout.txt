@@ -1,9 +1,0 @@
-UNDERSCORE_DRIVER_OK [2,4,6]
-At location (C:\Users\Convidado!\OneDrive\Documentos\ChatGPT\replicação\experimentos\jalangi2\amostra_underscore\merge.js:11:15:11:43) 'true' branch was taken 0 time(s) and 'false' branch was taken 1 time(s).
-At location (C:\Users\Convidado!\OneDrive\Documentos\ChatGPT\replicação\experimentos\jalangi2\amostra_underscore\merge.js:456:7:456:30) 'true' branch was taken 1 time(s) and 'false' branch was taken 0 time(s).
-At location (C:\Users\Convidado!\OneDrive\Documentos\ChatGPT\replicação\experimentos\jalangi2\amostra_underscore\merge.js:50:9:50:23) 'true' branch was taken 1 time(s) and 'false' branch was taken 0 time(s).
-At location (C:\Users\Convidado!\OneDrive\Documentos\ChatGPT\replicação\experimentos\jalangi2\amostra_underscore\merge.js:50:9:50:23) 'true' branch was taken 1 time(s) and 'false' branch was taken 0 time(s).
-At location (C:\Users\Convidado!\OneDrive\Documentos\ChatGPT\replicação\experimentos\jalangi2\amostra_underscore\merge.js:26:11:26:22) 'true' branch was taken 0 time(s) and 'false' branch was taken 1 time(s).
-At location (C:\Users\Convidado!\OneDrive\Documentos\ChatGPT\replicação\experimentos\jalangi2\amostra_underscore\merge.js:28:18:28:28) 'true' branch was taken 0 time(s) and 'false' branch was taken 1 time(s).
-At location (C:\Users\Convidado!\OneDrive\Documentos\ChatGPT\replicação\experimentos\jalangi2\amostra_underscore\merge.js:30:18:30:26) 'true' branch was taken 0 time(s) and 'false' branch was taken 1 time(s).
-At location (C:\Users\Convidado!\OneDrive\Documentos\ChatGPT\replicação\experimentos\jalangi2\amostra_underscore\merge.js:34:34:34:80) 'true' branch was taken 2 time(s) and 'false' branch was taken 0 time(s).

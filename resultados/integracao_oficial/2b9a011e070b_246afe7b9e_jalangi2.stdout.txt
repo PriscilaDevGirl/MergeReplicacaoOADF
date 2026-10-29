@@ -1,2 +1,0 @@
-At location (C:\Users\Convidado!\OneDrive\Documentos\ChatGPT\replicação\experimentos\integracao_oficial\2b9a011e070b_246afe7b9e\merge.js:11:15:11:43) 'true' branch was taken 0 time(s) and 'false' branch was taken 1 time(s).
-At location (C:\Users\Convidado!\OneDrive\Documentos\ChatGPT\replicação\experimentos\integracao_oficial\2b9a011e070b_246afe7b9e\merge.js:456:7:456:30) 'true' branch was taken 1 time(s) and 'false' branch was taken 0 time(s).

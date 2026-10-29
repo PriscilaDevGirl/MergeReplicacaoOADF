@@ -1,1 +1,0 @@
-var o = {get x() { return 1; }};

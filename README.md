@@ -1,74 +1,58 @@
-# Replicação de detecção de conflitos semânticos em JavaScript
+# Mineração de cenários de merge em JavaScript
 
-Trabalho de preparação de replicação e extensão do artigo **Semantic conflict detection via dynamic analysis**, Amanda Moraes, Paulo Borba e Léuson Da Silva, SBLP 2024. [Artigo / DOI](https://doi.org/10.5753/sblp.2024.3471).
+Este repositório reúne **a mineração de repositórios, os critérios de seleção e os resultados da coleta**. O objetivo atual é preparar cenários rastreáveis para pesquisa de integração de software.
 
-Estado em 29/10/2026: fluxo experimental executado com MiningFramework e Jalangi2 oficiais, um mapeador de linhas e um analisador OA independente experimental. O pacote original da Amanda não foi recuperado; a equivalência com ele não foi demonstrada. A extensão com dataflow ainda não foi implementada.
+## Resultados da mineração
 
-## Resultados verificados
+| Etapa | Projeto | Resultado |
+| --- | --- | --- |
+| Piloto com MiningFramework oficial | Underscore | 5 merges selecionados, 6 pares arquivo–merge |
+| Repetição do piloto oficial | Underscore | Mesmos pares e conjuntos de linhas por branch |
+| Exploração anterior com Git/Python | Underscore | 509 merges no recorte, 184 pares candidatos em 146 merges |
+| Quatro versões disponíveis na exploração | Underscore | 181 pares com base, Left, Right e merge |
+| Exploração auxiliar | jsFSTMerge | 13 merges examinados, 11 pares candidatos Java em 6 merges |
 
-| Etapa | Resultado |
+**Os 509 merges pertencem à exploração Git/Python. O MiningFramework oficial processou o lote de cinco merges.** Seus seis registros correspondem a versões de dois caminhos: `underscore.js` e `test/utility.js`.
+
+O lote é uma seleção por conveniência para verificar a coleta. Não é uma amostra aleatória ou representativa e não foi selecionado pela presença conhecida de defeitos.
+
+## Critérios e evidências
+
+- [Critérios de mineração](CRITERIOS_DE_MINERACAO.md): escolha dos projetos, recorte temporal, filtros e seleção do lote.
+- [Relatório do piloto](RELATORIO_PILOTO_MINERACAO.md): resultados e rastreabilidade.
+- [Como reproduzir](COMO_REPRODUZIR_MINERACAO.md): ambiente e comandos.
+
+| Arquivo ou pasta | Conteúdo |
 | --- | --- |
-| Lote com MiningFramework oficial | 5 merges, 6 pares arquivo–merge JavaScript |
-| Repetição do lote | Mesmos pares e conjuntos de linhas por branch |
-| Controles sintéticos próprios | 44 controles aprovados |
-| Aplicação do analisador independente | 4 execuções válidas sem alerta; 2 erros de contexto de testes |
-| Coleta exploratória anterior, Git/Python | 509 merges no recorte, 184 pares candidatos em 146 merges; 181 quádruplas disponíveis |
+| `scripts/minerar_merges.py` | Coletor exploratório Git/Python |
+| `scripts/executar_miningframework.ps1` | Wrapper do módulo oficial no ambiente provisionado |
+| `scripts/auditar_criterios_mineracao.py` | Conferência dos critérios nos seis registros oficiais |
+| `scripts/verificar_amostras.py` | Integridade das quádruplas e checagem de sintaxe de JavaScript |
+| `experimentos/miningframework/` | Projeto e SHAs fornecidos ao framework |
+| `resultados/miningframework/` | Saídas oficiais, logs, repetição e auditoria |
+| `resultados/underscore_pre2015/` | Tabelas e amostras da exploração anterior |
+| `resultados/jsfstmerge/` | Tabelas da exploração auxiliar Java |
 
-Os 509 merges não foram minerados pelo MiningFramework nesta execução. Os 44 controles não são a suíte original de 69 casos. Zero alertas no piloto não comprova ausência de conflitos. Não há estimativa empírica de recall, acurácia ou superioridade sobre o artigo.
+## Reprodução rápida
 
-## Comece por aqui
-
-- [Comparação pronta para apresentação, com dados e evidências](docs/COMPARACAO_ESTUDO_E_PILOTO.md)
-- [Reimplementação OA: resultados e limites](RESULTADO_OA.md)
-- [Ferramentas oficiais e adaptações do ambiente](FERRAMENTAS_OFICIAIS_EXECUTADAS.md)
-- [Domínio e decisões do analisador](analisador_oa/README.md)
-- [Plano de replicação](PLANO_DE_REPLICACAO.md)
-
-## Código e dados
-
-| Caminho | Conteúdo |
-| --- | --- |
-| `analisador_oa/` | Análise OA independente e verificação de fontes |
-| `scripts/` | Mineração, mapeamento, execução, controles e geração dos resumos |
-| `experimentos/miningframework/` | Lista de projetos e cinco merges do piloto oficial |
-| `experimentos/oa_controles/` | Fontes dos controles sintéticos |
-| `dados/apresentacao/` | CSVs e números verificados para os slides |
-| `resultados/miningframework/saida_oficial/` | Saída preservada do coletor oficial |
-| `resultados/oa_validacao/` | Resultados dos controles sintéticos |
-| `resultados/oa_coleta/` | Mapas, fontes anotadas, configurações e eventos por amostra |
-| `resultados/underscore_pre2015/` | Coleta exploratória Git/Python, separada do piloto oficial |
-| `dados/mergedataset/` | Inventário complementar do catálogo público do grupo |
-
-Os registros de execução preservam caminhos absolutos da máquina para auditoria. Para executar em outra máquina, regenere configurações e mapas com os scripts; os caminhos antigos não devem ser reutilizados como configuração local.
-
-## Execução
-
-Requisitos do protótipo: Python 3, Git, Node.js e Jalangi2. A execução verificada usou Node `v24.14.1` e Jalangi2 no commit `bc879287b1678de6e3c423f5debe63207559525b`.
+Com o histórico completo do Underscore em `repositorios/underscore`, confira o lote preservado:
 
 ```powershell
-git clone https://github.com/Samsung/jalangi2.git ferramentas/jalangi2
-git -C ferramentas/jalangi2 checkout --detach bc879287b1678de6e3c423f5debe63207559525b
+python scripts/auditar_criterios_mineracao.py
 ```
 
-Instale as dependências dentro de `ferramentas/jalangi2` com `npm.cmd install --omit=dev --ignore-scripts --no-audit --no-fund`. O lockfile da execução está preservado em `resultados/jalangi2/package-lock.executado.json`.
-
-Da raiz:
+Para repetir a mineração oficial no ambiente já provisionado nesta máquina:
 
 ```powershell
-python scripts/testar_oa.py
-python scripts/gerar_resumo_pesquisa.py
+.\scripts\executar_miningframework.ps1
 ```
 
-Para reaplicar a análise aos arquivos reais é necessário obter o histórico completo do Underscore em `repositorios/underscore`. Ver [instruções da coleta](COMO_REPRODUZIR_MINERACAO.md); depois execute `python scripts/aplicar_oa_coleta.py`.
+O wrapper pressupõe a instalação da ferramenta e do Gradle em `C:\Users\Public\codex-merge-pilot`. Ele não é um instalador portátil. Veja as instruções detalhadas para o ambiente e as adaptações de build.
 
-O MiningFramework foi executado no commit `7a9503f0e3af110fb0028fb02753d4c4a627266e`. Seu ambiente foi provisionado fora do caminho com `!`, em `C:\Users\Public\codex-merge-pilot`. O wrapper `scripts/executar_miningframework.ps1` pressupõe esse ambiente já provisionado; não é um instalador portátil. O relatório das ferramentas e o patch de compatibilidade documentam a preparação necessária.
+## Ferramenta e estudo de referência
 
-## Limites e próximos marcos
+- [MiningFramework do grupo](https://github.com/spgroup/miningframework), commit `7a9503f0e3af110fb0028fb02753d4c4a627266e`.
+- Módulo: `injectors.DynamicAnalysisJsModifiedLinesDetectionModule`.
+- Moraes, Borba e Da Silva, *Semantic conflict detection via dynamic analysis*, SBLP 2024. [DOI](https://doi.org/10.5753/sblp.2024.3471).
 
-- Recuperar a suíte e o analisador originais ou uma referência independente para confrontar o protótipo.
-- Revisar manualmente os mapas; o alinhamento textual do Git não é prova de autoria semântica.
-- Melhorar a exercitação das duas contribuições, preservando separadamente execução direta e drivers/testes.
-- Ampliar a coleta com o módulo oficial e avaliar a necessidade de novos modelos de linguagem.
-- Definir com o orientador o desenho e a avaliação da extensão com dataflow.
-
-Clones de ferramentas, caches e arquivos de instrumentação regeneráveis não fazem parte do versionamento. Fontes e avisos de terceiros estão descritos em [THIRD_PARTY.md](THIRD_PARTY.md).
+A coleta atual não reproduz integralmente a amostra do artigo. Ela documenta os passos executados e as decisões do piloto. Fontes e licenças estão em [THIRD_PARTY.md](THIRD_PARTY.md).

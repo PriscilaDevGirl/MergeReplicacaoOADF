@@ -1,7 +1,0 @@
-At location (C:\Users\Convidado!\OneDrive\Documentos\ChatGPT\replicação\experimentos\integracao_oficial\e863fbf285f7_246afe7b9e\merge.js:25:17:25:53) 'true' branch was taken 0 time(s) and 'false' branch was taken 1 time(s).
-At location (C:\Users\Convidado!\OneDrive\Documentos\ChatGPT\replicação\experimentos\integracao_oficial\e863fbf285f7_246afe7b9e\merge.js:31:7:31:37) 'true' branch was taken 1 time(s) and 'false' branch was taken 0 time(s).
-At location (C:\Users\Convidado!\OneDrive\Documentos\ChatGPT\replicação\experimentos\integracao_oficial\e863fbf285f7_246afe7b9e\merge.js:43:11:43:22) 'true' branch was taken 4 time(s) and 'false' branch was taken 0 time(s).
-At location (C:\Users\Convidado!\OneDrive\Documentos\ChatGPT\replicação\experimentos\integracao_oficial\e863fbf285f7_246afe7b9e\merge.js:396:8:396:22) 'true' branch was taken 0 time(s) and 'false' branch was taken 1 time(s).
-At location (C:\Users\Convidado!\OneDrive\Documentos\ChatGPT\replicação\experimentos\integracao_oficial\e863fbf285f7_246afe7b9e\merge.js:398:30:398:59) 'true' branch was taken 69 time(s) and 'false' branch was taken 0 time(s).
-At location (C:\Users\Convidado!\OneDrive\Documentos\ChatGPT\replicação\experimentos\integracao_oficial\e863fbf285f7_246afe7b9e\merge.js:104:9:104:40) 'true' branch was taken 1 time(s) and 'false' branch was taken 0 time(s).
-At location (C:\Users\Convidado!\OneDrive\Documentos\ChatGPT\replicação\experimentos\integracao_oficial\e863fbf285f7_246afe7b9e\merge.js:104:9:104:40) 'true' branch was taken 1 time(s) and 'false' branch was taken 0 time(s).

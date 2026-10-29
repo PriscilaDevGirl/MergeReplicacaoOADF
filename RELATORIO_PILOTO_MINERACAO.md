@@ -1,103 +1,50 @@
-# Resultado do piloto de mineração de merges
+# Relatório da mineração piloto
 
-Atualização: o bloqueio do MiningFramework foi posteriormente resolvido e houve execução com o módulo oficial e com Jalangi2. Ver `FERRAMENTAS_OFICIAIS_EXECUTADAS.md`. As contagens abaixo continuam descrevendo o primeiro piloto Git/Python, preservado como registro separado.
+## Escopo
 
-Data: 29/10/2026. Contexto: preparação da replicação e extensão do estudo de Amanda Moraes, Paulo Borba e Léuson Da Silva (SBLP 2024).
+Este relatório documenta a coleta de cenários de merge e seus critérios. Há duas etapas: uma exploração com Git/Python e um lote de validação com o MiningFramework oficial.
 
-## Resultado principal
-
-Foi executada uma mineração real e local do histórico Git de dois projetos. A coleta produziu tabelas com SHAs de merge, pais, ancestral comum e arquivos modificados pelas duas contribuições. Dez amostras foram exportadas com quatro versões e cinco diffs por amostra.
-
-| Medida | jsFSTMerge | Underscore |
+| Medida | Underscore, Git/Python | Underscore, MiningFramework oficial |
 | --- | ---: | ---: |
-| Merges alcançáveis do HEAD congelado | 13 | 829 |
-| Merges dentro do recorte | 13 | 509 |
-| Merges com um pai ancestral do outro, excluídos | 5 | 260 |
-| Merges sem ancestral comum único, excluídos | 0 | 1 |
-| Merges sem arquivo comum das extensões selecionadas | 2 | 102 |
-| Merges com arquivos candidatos | 6 | 146 |
-| Pares arquivo–merge candidatos | 11 | 184 |
-| Candidatos com as quatro versões presentes | 10 | 181 |
-| Amostras exportadas | 5 | 5 |
+| Merges alcançáveis do HEAD congelado | 829 | Não usado como universo desta execução |
+| Merges no recorte até 31/12/2014 | 509 | Lista explícita de 5 merges |
+| Merges com candidatos | 146 | 5 |
+| Pares arquivo–merge | 184 | 6 |
+| Pares com quatro versões disponíveis | 181 | 6, conferidos pela auditoria |
+| Caminhos distintos do lote oficial | Não é a unidade resumida | 2 |
 
-jsFSTMerge: coleta sem filtro de data, extensões `.java` e `.js`. Os 11 candidatos encontrados são Java; nenhum candidato JavaScript foi encontrado nesse histórico com os critérios adotados.
+A exploração exportou cinco pares completos para inspeção, correspondentes a cinco merges distintos. O lote oficial recebeu esses merges por lista explícita. Um deles produziu dois arquivos, totalizando seis registros.
 
-Underscore: extensão `.js`, data de committer até 31/12/2014, inclusive. Dos 829 merges, 320 ficaram fora do recorte. Esse corte conservador é uma decisão do piloto, não uma reprodução afirmada do limite temporal exato da Amanda.
+Os caminhos oficiais são `underscore.js` e `test/utility.js`. A unidade é a versão de um arquivo em um merge, não o nome do arquivo isolado.
 
-Um candidato é um **par arquivo–merge**, não um conflito confirmado. Arquivos diferentes do mesmo merge não são observações necessariamente independentes.
+## Exploração auxiliar
 
-## Relação dos projetos com a pesquisa
+O histórico do jsFSTMerge foi examinado com Git/Python: 13 merges, 6 merges candidatos e 11 pares de arquivos Java, dos quais 10 com as quatro versões disponíveis. Ele não forneceu candidatos JavaScript com os critérios usados e não integra o lote oficial.
 
-O jsFSTMerge é uma ferramenta de merge semiestruturado de JavaScript desenvolvida na UFPE. Seu README atribui o desenvolvimento a Alberto Trindade Tavares e informa que ela se baseia no jFSTMerge de Guilherme Cavalcanti. O histórico foi minerado como projeto associado ao tema e ao grupo, sem atribuir sua autoria individual a Paulo Borba.
+## Referências congeladas
 
-Como a implementação do jsFSTMerge é majoritariamente Java e não forneceu candidatos `.js`, foi feita uma segunda coleta no Underscore para obter material JavaScript para a próxima etapa. Underscore não é um repositório do Paulo. Ainda não foi verificado se ele integra a lista original dos 50 projetos; esta é uma nova coleta, cuja independência em relação à amostra original não está estabelecida.
-
-## Método executado
-
-1. Clonar os históricos completos, sem `--depth`.
-2. Congelar o HEAD de referência de cada coleta e enumerar todos os merges alcançáveis dele.
-3. Aplicar o recorte de data quando definido, usando a data local de calendário armazenada no timestamp do committer.
-4. Manter somente merges de dois pais e com um único ancestral comum retornado por `git merge-base --all`.
-5. Excluir casos em que o ancestral coincide com um dos pais.
-6. Comparar base→Left e base→Right, sem detecção de renomeação, e intersectar os caminhos alterados.
-7. Selecionar as extensões previstas e conferir se o caminho existe em base, Left, Right e merge.
-8. Exportar as cinco primeiras amostras disponíveis na ordem topológica reversa usada pelo comando. Trata-se de seleção por conveniência para inspeção, não amostragem representativa.
-
-As tabelas mantêm candidatos com versões ausentes sinalizados; esses registros não foram exportados como quádruplas completas. O uso de caminhos exatos e a desativação da detecção de renomeação são simplificações a revisar antes de uma coleta definitiva.
-
-## Ferramentas e rastreabilidade
-
-| Item | Referência congelada |
+| Item | Referência |
 | --- | --- |
-| MiningFramework inspecionado | `spgroup/miningframework`, commit `7a9503f0e3af110fb0028fb02753d4c4a627266e` |
-| jsFSTMerge | `AlbertoTrindade/jsFSTMerge`, HEAD `f85afb916754e3fc05636db6dfa2dd652c6508fe` |
-| Underscore | `jashkenas/underscore`, HEAD `5c1e5f686f8500af9c9d15614ed60289d6d35d6b` |
-| Coletor executado | `scripts/minerar_merges.py`, Python com biblioteca padrão e Git |
-| Git | `2.55.0.windows.5` |
+| Underscore | `https://github.com/jashkenas/underscore` |
+| HEAD do Underscore | `5c1e5f686f8500af9c9d15614ed60289d6d35d6b` |
+| jsFSTMerge | `https://github.com/AlbertoTrindade/jsFSTMerge` |
+| HEAD do jsFSTMerge | `f85afb916754e3fc05636db6dfa2dd652c6508fe` |
+| MiningFramework | `https://github.com/spgroup/miningframework` |
+| Commit da ferramenta | `7a9503f0e3af110fb0028fb02753d4c4a627266e` |
+| Módulo | `injectors.DynamicAnalysisJsModifiedLinesDetectionModule` |
 
-O MiningFramework foi baixado e seu módulo `DynamicAnalysisJsModifiedLinesDetectionModule` foi identificado. Ele combina `MutuallyModifiedFilesCommitFilter`, `ModifiedFilesLinesPerFileCollector` e `StatisticsCollector`. A execução do framework não chegou a iniciar a mineração: o Gradle apresentou falha ao carregar recursos de JAR em caminho contendo `Convidado!`, com `NoSuchFileException` para `C:\Users\Convidado`. Uma tentativa com caminho curto também falhou no daemon.
+## Execução oficial e repetição
 
-**A coleta apresentada foi executada pelo script Git/Python, e não pelo MiningFramework.** O script realiza a seleção básica de arquivos modificados nas duas contribuições e acrescenta verificações de pais e ancestral. Não foi demonstrada equivalência integral entre sua saída e a do framework, nem com o coletor usado no artigo.
+O log `resultados/miningframework/framework-tmp-curto.log` registra `MINING FINISHED` e `BUILD SUCCESSFUL`. O arquivo `saida_oficial/data/results.csv` contém os seis registros originais.
 
-O endereço do Nightmare consultado não pôde ser clonado: o servidor retornou `Repository not found`. Isso motivou a escolha dos projetos acima.
+A execução foi repetida pelo wrapper. Desconsiderando o alias do projeto e a ordem dos conjuntos, foram obtidos os mesmos pares e conjuntos de linhas por branch. Evidências: `resultados/miningframework/reproducibilidade.json` e a pasta `verificacao-cli`.
 
-## Material exportado e validação
+O código de mineração do framework não foi alterado. A cópia de execução recebeu duas adaptações de build: a API `application.mainClass` do Gradle 8.13 e o toolchain Java 21 instalado. O patch permanece no repositório.
 
-Cada pasta de amostra contém:
+Foi necessário usar um caminho sem `!` e uma pasta temporária curta para o Java. O ambiente foi provisionado em `C:\Users\Public\codex-merge-pilot`.
 
-- `base`, `left`, `right` e `merge`, na extensão do arquivo original;
-- diffs base→Left, base→Right, base→merge, Left→merge e Right→merge;
-- `metadata.json` com SHAs completos, caminho original e checksums SHA-256 das quatro versões.
+## Interpretação
 
-O verificador conferiu as 10 amostras exportadas e suas 40 versões: ordem dos pais, ancestral comum único, igualdade byte a byte com `git show` e checksums. As cinco versões integradas JavaScript passaram em `node --check`. Esses testes não demonstram compatibilidade com Jalangi2 ou ausência/presença de conflitos semânticos.
+O lote foi escolhido por conveniência para verificar a coleta. Não foi demonstrada equivalência com a amostra original do estudo. A seleção não exigiu alterações em linhas executáveis nem execução isolada dos arquivos.
 
-Exemplo concreto no Underscore:
-
-- Merge: `2b9a011e070b01cf1e6957333fcb425a638c0465`.
-- Left: `f997a17c8965c9cfa9a19e932666348695712332`.
-- Right: `df2742de1767c0ded3cf37dd88d094c7d59bc882`.
-- Base: `4a83fcdd260f61f253f3349740ee304074867aff`.
-- Arquivo: `underscore.js`.
-
-A inspeção do diff base→Left dessa primeira amostra mostrou alteração apenas em comentário. Isso ilustra por que o filtro por arquivo comum é somente uma pré-seleção: ainda será necessário verificar linhas executáveis, preservar sua origem na versão integrada e exercitar as contribuições.
-
-## Inventário complementar do repositório do grupo
-
-Também foi obtido e normalizado o catálogo `semantic-conflicts/sample-semantic-conflicts.csv` de `spgroup/mergedataset`, blob `e617e0955c12c1563f0112c0bcd750aeeb86e089`.
-
-- 95 registros;
-- 72 pares distintos projeto–commit;
-- 41 URLs de projetos distintas;
-- campo `Locally Observable Interference`: 17 `Yes`, 74 `No` e 4 `-`.
-
-Esses valores são um inventário dos rótulos publicados, não resultados de uma nova detecção. `Locally Observable Interference` não deve ser reinterpretado automaticamente como rótulo geral de conflito semântico ou de OA. O catálogo é voltado a classes/artefatos Java, portanto não substitui diretamente o dataset JavaScript do artigo.
-
-## O que já pode ser apresentado na reunião
-
-“Implementei e executei um piloto de mineração. No projeto de merge jsFSTMerge, encontrei 11 pares de arquivo e merge candidatos, todos Java. Para avançar no tema JavaScript, coletei o histórico do Underscore até o fim de 2014: 184 pares candidatos em 146 merges, com 181 quádruplas disponíveis. Exportei cinco amostras de cada projeto e conferi sua integridade. Ainda falta produzir o mapa de linhas para branches e executar o detector OA. A tentativa com o MiningFramework encontrou uma limitação do ambiente; o piloto usa Git/Python, e preciso alinhar essa adaptação metodológica.”
-
-## Próximo marco
-
-Selecionar uma amostra JavaScript com mudanças executáveis das duas contribuições, gerar e revisar seu mapa de origem nas linhas do merge e executar uma análise Jalangi2. Em paralelo, recuperar a implementação OA original ou alinhar uma reimplementação independente. Nenhum alerta OA ou conflito semântico novo foi confirmado neste piloto.
-
-Os resultados em CSV e JSON, amostras e scripts estão nesta pasta de trabalho. Instruções em `COMO_REPRODUZIR_MINERACAO.md`.
+A mineração identifica candidatos para investigação, sem confirmar defeitos. Veja `CRITERIOS_DE_MINERACAO.md` e `COMO_REPRODUZIR_MINERACAO.md`.

@@ -1,0 +1,16 @@
+{
+  "scope": "mining_only",
+  "project": "https://github.com/jashkenas/underscore",
+  "official_selected_merges": 5,
+  "official_file_merge_pairs": 6,
+  "unique_file_paths": [
+    "test/utility.js",
+    "underscore.js"
+  ],
+  "all_six_records_meet_checked_criteria": true,
+  "selection": "convenience: merges from first five complete exported exploratory pairs",
+  "random_seed_role": "processing order, not random selection of the pilot",
+  "original_output_sha256": "decbd2c0aa9c8587bb6ae986ce0d461686fdbe25d2b91839c9089a40afc13c55",
+  "source_input": "experimentos/miningframework/commits_piloto.csv",
+  "source_output": "resultados/miningframework/saida_oficial/data/results.csv"
+}
