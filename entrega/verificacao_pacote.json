@@ -1,0 +1,12 @@
+{
+  "source_versions_compared_with_git": 24,
+  "merges": 5,
+  "file_merge_pairs": 6,
+  "selected_file_diffs": 30,
+  "project_context_patches": 15,
+  "zip_integrity": "passed",
+  "zip_matches_package_bytes": true,
+  "offline_verifier_without_git_or_node": "passed",
+  "zip_sha256": "abd6f97f7507be6cda3e848291227e04e06cf05c71a6fc36eb1ef5a7a1435dc8",
+  "zip_bytes": 194473
+}

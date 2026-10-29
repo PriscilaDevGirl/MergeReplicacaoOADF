@@ -48,3 +48,11 @@ Foi necessário usar um caminho sem `!` e uma pasta temporária curta para o Jav
 O lote foi escolhido por conveniência para verificar a coleta. Não foi demonstrada equivalência com a amostra original do estudo. A seleção não exigiu alterações em linhas executáveis nem execução isolada dos arquivos.
 
 A mineração identifica candidatos para investigação, sem confirmar defeitos. Veja `CRITERIOS_DE_MINERACAO.md` e `COMO_REPRODUZIR_MINERACAO.md`.
+
+## Pacote para análise por outro pesquisador
+
+Todos os seis pares do lote oficial foram exportados em `cenarios/piloto_oficial/`, agrupados pelos cinco SHAs de merge. São 24 versões de código: base, Left, Right e merge para cada par.
+
+O pacote inclui 30 diffs dos arquivos selecionados, 15 patches de contexto do projeto completo, metadados com SHAs e checksums, índice CSV e verificador offline. O ZIP em `entrega/cenarios_merge_piloto.zip` contém o mesmo material, com critérios e licença do Underscore.
+
+Essa exportação não é nova mineração e não contém snapshots completos dos projetos. Ela facilita a inspeção dos arquivos efetivamente coletados pela ferramenta oficial.

@@ -1,0 +1,87 @@
+{
+  "project_url": "https://github.com/jashkenas/underscore",
+  "commits": {
+    "base": "0ed4212ec6d9217ce43d8bf566c411f96a052c5c",
+    "left": "2ba87d6b44f6c302bbb87635a2c5164337d0fcad",
+    "right": "76cccb6a2dc58b71811e4cc4ce5733a2b11e959f",
+    "merge": "e863fbf285f75063a982332d55926e5cc85f1626"
+  },
+  "merge_committer_date": "2009-12-09T12:07:24-05:00",
+  "merge_subject": "Merge branch 'master' of git://github.com/iamnoah/underscore",
+  "parent_convention": "left=first parent; right=second parent",
+  "snapshot_scope": "only the six file-merge pairs from the official mining output",
+  "selected_files": [
+    {
+      "path": "underscore.js",
+      "versions": {
+        "base": {
+          "file": "e863fbf285f75063a982332d55926e5cc85f1626/base/underscore.js",
+          "commit_sha": "0ed4212ec6d9217ce43d8bf566c411f96a052c5c",
+          "sha256": "53fe9e815c94aea8e19e1ab6001a0c713902b58c4f335e2d51188b7fd90cc2bb",
+          "bytes": 20770,
+          "lines": 589
+        },
+        "left": {
+          "file": "e863fbf285f75063a982332d55926e5cc85f1626/left/underscore.js",
+          "commit_sha": "2ba87d6b44f6c302bbb87635a2c5164337d0fcad",
+          "sha256": "d19b6d35ccc5b7e44beec00ad7dfd24bc22e8e1f1d50a835bc6f4f584caf7991",
+          "bytes": 20858,
+          "lines": 591
+        },
+        "right": {
+          "file": "e863fbf285f75063a982332d55926e5cc85f1626/right/underscore.js",
+          "commit_sha": "76cccb6a2dc58b71811e4cc4ce5733a2b11e959f",
+          "sha256": "1bb30f74db5a27f1bff48ebea6c0d776df441dfe306a95b97524fad49cf84efb",
+          "bytes": 21107,
+          "lines": 600
+        },
+        "merge": {
+          "file": "e863fbf285f75063a982332d55926e5cc85f1626/merge/underscore.js",
+          "commit_sha": "e863fbf285f75063a982332d55926e5cc85f1626",
+          "sha256": "7b11ad304027dafd9fa184579d98801638400d62265c10edf3e0301d78b26a7b",
+          "bytes": 21195,
+          "lines": 602
+        }
+      },
+      "diffs": {
+        "base_left": {
+          "file": "e863fbf285f75063a982332d55926e5cc85f1626/diffs/base_left/underscore.js.diff",
+          "from_sha": "0ed4212ec6d9217ce43d8bf566c411f96a052c5c",
+          "to_sha": "2ba87d6b44f6c302bbb87635a2c5164337d0fcad"
+        },
+        "base_right": {
+          "file": "e863fbf285f75063a982332d55926e5cc85f1626/diffs/base_right/underscore.js.diff",
+          "from_sha": "0ed4212ec6d9217ce43d8bf566c411f96a052c5c",
+          "to_sha": "76cccb6a2dc58b71811e4cc4ce5733a2b11e959f"
+        },
+        "base_merge": {
+          "file": "e863fbf285f75063a982332d55926e5cc85f1626/diffs/base_merge/underscore.js.diff",
+          "from_sha": "0ed4212ec6d9217ce43d8bf566c411f96a052c5c",
+          "to_sha": "e863fbf285f75063a982332d55926e5cc85f1626"
+        },
+        "left_merge": {
+          "file": "e863fbf285f75063a982332d55926e5cc85f1626/diffs/left_merge/underscore.js.diff",
+          "from_sha": "2ba87d6b44f6c302bbb87635a2c5164337d0fcad",
+          "to_sha": "e863fbf285f75063a982332d55926e5cc85f1626"
+        },
+        "right_merge": {
+          "file": "e863fbf285f75063a982332d55926e5cc85f1626/diffs/right_merge/underscore.js.diff",
+          "from_sha": "76cccb6a2dc58b71811e4cc4ce5733a2b11e959f",
+          "to_sha": "e863fbf285f75063a982332d55926e5cc85f1626"
+        }
+      },
+      "miningframework_row": {
+        "project": "underscore",
+        "merge commit": "e863fbf285f75063a982332d55926e5cc85f1626",
+        "file path": "underscore.js",
+        "left additions": "[427, 428]",
+        "left deletions": "[]",
+        "left changes": "[]",
+        "right additions": "[480, 481, 482, 564, 565, 394, 478, 574, 479]",
+        "right deletions": "[]",
+        "right changes": "[576, 484, 486, 487, 567, 568, 489, 585, 398]",
+        "repo url": "https://github.com/jashkenas/underscore"
+      }
+    }
+  ]
+}

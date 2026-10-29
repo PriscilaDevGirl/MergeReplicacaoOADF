@@ -1,0 +1,40 @@
+diff --git a/test/collections.js b/test/collections.js
+index c0bfe1e..47ca9d4 100644
+--- a/test/collections.js
++++ b/test/collections.js
+@@ -15,10 +15,6 @@ $(document).ready(function() {
+     _.each([1, 2, 3], function(num){ answers.push(num * this.multiplier);}, {multiplier : 5});
+     equals(answers.join(', '), '5, 10, 15', 'context object property accessed');
+ 
+-    answers = [];
+-    _.each("moe", function(letter){ answers.push(letter); });
+-    equals(answers.join(', '), 'm, o, e', 'iterates over the letters in strings');
+-
+     answers = [];
+     _.forEach([1, 2, 3], function(num){ answers.push(num); });
+     equals(answers.join(', '), '1, 2, 3', 'aliased as "forEach"');
+diff --git a/test/objects.js b/test/objects.js
+index 18c4b3c..8ba6785 100644
+--- a/test/objects.js
++++ b/test/objects.js
+@@ -52,6 +52,7 @@ $(document).ready(function() {
+     ok(_.isEqual(NaN, NaN), 'NaN is equal to NaN');
+     ok(_.isEqual(new Date(100), new Date(100)), 'identical dates are equal');
+     ok(_.isEqual((/hello/ig), (/hello/ig)), 'identical regexes are equal');
++    ok(!_.isEqual(null, [1]), 'a falsy is never equal to a truthy');
+   });
+ 
+   test("objects: isEmpty", function() {
+diff --git a/underscore.js b/underscore.js
+index 5139863..da098bc 100644
+--- a/underscore.js
++++ b/underscore.js
+@@ -424,6 +424,8 @@
+     if (atype != btype) return false;
+     // Basic equality test (watch out for coercions).
+     if (a == b) return true;
++    // One is falsy and the other truthy.
++    if ((!a && b) || (a && !b)) return false;
+     // One of them implements an isEqual()?
+     if (a.isEqual) return a.isEqual(b);
+     // Check dates' integer values.

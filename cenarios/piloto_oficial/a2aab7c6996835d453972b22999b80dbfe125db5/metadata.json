@@ -1,0 +1,159 @@
+{
+  "project_url": "https://github.com/jashkenas/underscore",
+  "commits": {
+    "base": "11e7af06e9f92d290acaef68cbd175a7fbaee46e",
+    "left": "875633141a9344ceb69bbb494aec77129ef34abf",
+    "right": "31f0f8c54cb5211cc48f6a1ee92fcedc4ed89a20",
+    "merge": "a2aab7c6996835d453972b22999b80dbfe125db5"
+  },
+  "merge_committer_date": "2010-02-24T11:38:27-05:00",
+  "merge_subject": "merging ratbeard's numerous improvements",
+  "parent_convention": "left=first parent; right=second parent",
+  "snapshot_scope": "only the six file-merge pairs from the official mining output",
+  "selected_files": [
+    {
+      "path": "test/utility.js",
+      "versions": {
+        "base": {
+          "file": "a2aab7c6996835d453972b22999b80dbfe125db5/base/test/utility.js",
+          "commit_sha": "11e7af06e9f92d290acaef68cbd175a7fbaee46e",
+          "sha256": "795e612850f0607fb1ca9a063a5dfd255f7f1f5ec6b9036709cbc48e1f9a7b22",
+          "bytes": 2536,
+          "lines": 68
+        },
+        "left": {
+          "file": "a2aab7c6996835d453972b22999b80dbfe125db5/left/test/utility.js",
+          "commit_sha": "875633141a9344ceb69bbb494aec77129ef34abf",
+          "sha256": "8a18c6e83da59ac1471d8b96115ac0e0e9dc014e17161ffab0610d72b22dc6e9",
+          "bytes": 3722,
+          "lines": 90
+        },
+        "right": {
+          "file": "a2aab7c6996835d453972b22999b80dbfe125db5/right/test/utility.js",
+          "commit_sha": "31f0f8c54cb5211cc48f6a1ee92fcedc4ed89a20",
+          "sha256": "d0582d1fd88e25713edf3b1457e9b608338a8465b1ce55e6aaf977a7745476b4",
+          "bytes": 2829,
+          "lines": 79
+        },
+        "merge": {
+          "file": "a2aab7c6996835d453972b22999b80dbfe125db5/merge/test/utility.js",
+          "commit_sha": "a2aab7c6996835d453972b22999b80dbfe125db5",
+          "sha256": "985a8b619740807c4549d9f6a93c1a69cb8cb343f4b94709e131c3afcd63f264",
+          "bytes": 4015,
+          "lines": 101
+        }
+      },
+      "diffs": {
+        "base_left": {
+          "file": "a2aab7c6996835d453972b22999b80dbfe125db5/diffs/base_left/test/utility.js.diff",
+          "from_sha": "11e7af06e9f92d290acaef68cbd175a7fbaee46e",
+          "to_sha": "875633141a9344ceb69bbb494aec77129ef34abf"
+        },
+        "base_right": {
+          "file": "a2aab7c6996835d453972b22999b80dbfe125db5/diffs/base_right/test/utility.js.diff",
+          "from_sha": "11e7af06e9f92d290acaef68cbd175a7fbaee46e",
+          "to_sha": "31f0f8c54cb5211cc48f6a1ee92fcedc4ed89a20"
+        },
+        "base_merge": {
+          "file": "a2aab7c6996835d453972b22999b80dbfe125db5/diffs/base_merge/test/utility.js.diff",
+          "from_sha": "11e7af06e9f92d290acaef68cbd175a7fbaee46e",
+          "to_sha": "a2aab7c6996835d453972b22999b80dbfe125db5"
+        },
+        "left_merge": {
+          "file": "a2aab7c6996835d453972b22999b80dbfe125db5/diffs/left_merge/test/utility.js.diff",
+          "from_sha": "875633141a9344ceb69bbb494aec77129ef34abf",
+          "to_sha": "a2aab7c6996835d453972b22999b80dbfe125db5"
+        },
+        "right_merge": {
+          "file": "a2aab7c6996835d453972b22999b80dbfe125db5/diffs/right_merge/test/utility.js.diff",
+          "from_sha": "31f0f8c54cb5211cc48f6a1ee92fcedc4ed89a20",
+          "to_sha": "a2aab7c6996835d453972b22999b80dbfe125db5"
+        }
+      },
+      "miningframework_row": {
+        "project": "underscore",
+        "merge commit": "a2aab7c6996835d453972b22999b80dbfe125db5",
+        "file path": "test/utility.js",
+        "left additions": "[64, 65, 66, 67, 68, 70, 71, 72, 74, 75, 45, 77, 46, 47, 61]",
+        "left deletions": "[]",
+        "left changes": "[]",
+        "right additions": "[32, 33, 34, 35, 36, 37, 38, 39, 40, 41]",
+        "right deletions": "[]",
+        "right changes": "[]",
+        "repo url": "https://github.com/jashkenas/underscore"
+      }
+    },
+    {
+      "path": "underscore.js",
+      "versions": {
+        "base": {
+          "file": "a2aab7c6996835d453972b22999b80dbfe125db5/base/underscore.js",
+          "commit_sha": "11e7af06e9f92d290acaef68cbd175a7fbaee46e",
+          "sha256": "b2f5430c7c0f2422ea27fe06603d2fc7036b81a2c9a9ebe0675d018413b32f3a",
+          "bytes": 22697,
+          "lines": 646
+        },
+        "left": {
+          "file": "a2aab7c6996835d453972b22999b80dbfe125db5/left/underscore.js",
+          "commit_sha": "875633141a9344ceb69bbb494aec77129ef34abf",
+          "sha256": "c9033e061d8bb8ca6b2a9399554f4e3692f3f7ff8dff7dddb1caa6c8eaeac106",
+          "bytes": 22881,
+          "lines": 649
+        },
+        "right": {
+          "file": "a2aab7c6996835d453972b22999b80dbfe125db5/right/underscore.js",
+          "commit_sha": "31f0f8c54cb5211cc48f6a1ee92fcedc4ed89a20",
+          "sha256": "495a872d7da44be0fce51e134a1649ecf2265fb306bf575be2ae38e1f948f277",
+          "bytes": 25518,
+          "lines": 718
+        },
+        "merge": {
+          "file": "a2aab7c6996835d453972b22999b80dbfe125db5/merge/underscore.js",
+          "commit_sha": "a2aab7c6996835d453972b22999b80dbfe125db5",
+          "sha256": "b61f0270830bd57042cfb226f33705b525ff9258aa98d2d466efeda14ed07b86",
+          "bytes": 25702,
+          "lines": 721
+        }
+      },
+      "diffs": {
+        "base_left": {
+          "file": "a2aab7c6996835d453972b22999b80dbfe125db5/diffs/base_left/underscore.js.diff",
+          "from_sha": "11e7af06e9f92d290acaef68cbd175a7fbaee46e",
+          "to_sha": "875633141a9344ceb69bbb494aec77129ef34abf"
+        },
+        "base_right": {
+          "file": "a2aab7c6996835d453972b22999b80dbfe125db5/diffs/base_right/underscore.js.diff",
+          "from_sha": "11e7af06e9f92d290acaef68cbd175a7fbaee46e",
+          "to_sha": "31f0f8c54cb5211cc48f6a1ee92fcedc4ed89a20"
+        },
+        "base_merge": {
+          "file": "a2aab7c6996835d453972b22999b80dbfe125db5/diffs/base_merge/underscore.js.diff",
+          "from_sha": "11e7af06e9f92d290acaef68cbd175a7fbaee46e",
+          "to_sha": "a2aab7c6996835d453972b22999b80dbfe125db5"
+        },
+        "left_merge": {
+          "file": "a2aab7c6996835d453972b22999b80dbfe125db5/diffs/left_merge/underscore.js.diff",
+          "from_sha": "875633141a9344ceb69bbb494aec77129ef34abf",
+          "to_sha": "a2aab7c6996835d453972b22999b80dbfe125db5"
+        },
+        "right_merge": {
+          "file": "a2aab7c6996835d453972b22999b80dbfe125db5/diffs/right_merge/underscore.js.diff",
+          "from_sha": "31f0f8c54cb5211cc48f6a1ee92fcedc4ed89a20",
+          "to_sha": "a2aab7c6996835d453972b22999b80dbfe125db5"
+        }
+      },
+      "miningframework_row": {
+        "project": "underscore",
+        "merge commit": "a2aab7c6996835d453972b22999b80dbfe125db5",
+        "file path": "underscore.js",
+        "left additions": "[33, 34, 35]",
+        "left deletions": "[]",
+        "left changes": "[582]",
+        "right additions": "[256, 257, 258, 259, 260, 262, 263, 264, 265, 266, 267, 268, 269, 33, 34, 35, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 347, 475, 476, 477, 478, 479, 480, 482, 484, 485, 614, 487, 615, 488, 616, 617, 490, 618, 491, 492, 493, 494, 495, 496, 497, 254, 255]",
+        "right deletions": "[177]",
+        "right changes": "[128, 129, 130, 131, 395, 148, 149, 150, 663, 152, 664, 665, 538, 666, 539, 667, 540, 668, 669, 670, 671, 160, 161, 162, 164, 37, 549, 38, 550, 681, 172, 175, 176, 691, 692, 310, 438, 311, 439, 700, 67, 68, 69, 72, 86, 87, 89, 91, 349, 98, 99, 355, 101, 357, 109, 111, 113]",
+        "repo url": "https://github.com/jashkenas/underscore"
+      }
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+diff --git a/underscore.js b/underscore.js
+index 5e02973..26a15e3 100644
+--- a/underscore.js
++++ b/underscore.js
+@@ -30,6 +30,9 @@
+   // Export the Underscore object for CommonJS.
+   if (typeof exports !== 'undefined') exports._ = _;
+ 
++  // Quick regexp-escaping function, because JS doesn't have RegExp.escape().
++  var escapeRegExp = function(s) { return s.replace(/([.*+?^${}()|[\]\/\\])/g, '\\$1'); };
++
+   // Save bytes in the minified (but not gzipped) version:
+   var ArrayPrototype = Array.prototype;
+   
+@@ -648,7 +651,7 @@
+       'var p=[],print=function(){p.push.apply(p,arguments);};' +
+       'with(obj){p.push(\'' +
+       str.replace(/[\r\t\n]/g, " ")
+-         .replace(new RegExp("'(?=[^"+c.end[0]+"]*"+c.end+")","g"),"\t")
++         .replace(new RegExp("'(?=[^"+c.end[0]+"]*"+escapeRegExp(c.end)+")","g"),"\t")
+          .split("'").join("\\'")
+          .split("\t").join("'")
+          .replace(c.interpolate, "',$1,'")

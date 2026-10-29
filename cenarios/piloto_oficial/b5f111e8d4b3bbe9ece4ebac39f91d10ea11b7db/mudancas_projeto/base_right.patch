@@ -1,0 +1,90 @@
+diff --git a/test/arrays.js b/test/arrays.js
+index d069d9d..a9dcb4e 100644
+--- a/test/arrays.js
++++ b/test/arrays.js
+@@ -58,4 +58,19 @@ $(document).ready(function() {
+     equals(_.lastIndexOf(numbers, 0), 8, 'lastIndexOf the other element');
+   });
+   
++  test("arrays: tail", function() {
++    var numbers = [1, 2, 3, 4];
++    equals(_.tail(numbers).join(", "), "2, 3, 4");
++  });
++  
++  test("arrays: init", function() {
++    var numbers = [1, 2, 3, 4];
++    equals(_.init(numbers).join(", "), "1, 2, 3");
++  });
++  
++  test("arrays: reverse", function() {
++    var numbers = [1, 2, 4, 6];
++    equals(_.reverse(numbers).join(", "), "6, 4, 2, 1");
++  });
++  
+ });
+diff --git a/test/utility.js b/test/utility.js
+index ed6ee12..0acc6a1 100644
+--- a/test/utility.js
++++ b/test/utility.js
+@@ -31,13 +31,13 @@ $(document).ready(function() {
+   });
+ 
+   test("utility: functions", function() {
+-    var expected = ["all", "any", "bind", "bindAll", "breakLoop", "clone", "compact", "compose",
+-    "defer", "delay", "detect", "each", "every", "extend", "filter", "first",
+-    "flatten", "foldl", "foldr", "forEach", "functions", "identity", "include",
+-    "indexOf", "inject", "intersect", "invoke", "isArray", "isElement", "isEmpty", "isEqual",
++    var expected = ["all", "any", "bind", "bindAll", "breakLoop", "clone", "compact", 
++    "compose","defer", "delay", "detect", "each", "every", "extend", "filter", "first",
++    "flatten", "foldl", "foldr", "forEach", "functions", "head", "identity", "include",
++    "indexOf", "init", "inject", "intersect", "invoke", "isArray", "isElement", "isEmpty", "isEqual",
+     "isFunction", "isNumber", "isString", "isUndefined", "keys", "last", "lastIndexOf", "map", "max",
+-    "methods", "min", "pluck", "reduce", "reduceRight", "reject", "select",
+-    "size", "some", "sortBy", "sortedIndex", "template", "toArray", "uniq",
++    "methods", "min", "pluck", "reduce", "reduceRight", "reject", "reverse", "select",
++    "size", "some", "sortBy", "sortedIndex", "tail", "template", "toArray", "uniq",
+     "uniqueId", "values", "without", "wrap", "zip"];
+     ok(_(expected).isEqual(_.methods()), 'provides a sorted list of functions');
+   });
+diff --git a/underscore.js b/underscore.js
+index ac1b865..ad6dbec 100644
+--- a/underscore.js
++++ b/underscore.js
+@@ -305,6 +305,29 @@
+     while (i--) if (array[i] === item) return i;
+     return -1;
+   };
++  
++  // Returns everything but the first entry of the array. Conceptually the 
++  // same as calling shift(), but doesn't mutate the array passed in.
++  _.tail = function(array) {
++    var tail = _.clone(array);
++    tail.shift();
++    return tail;
++  };
++  
++  // Returns everything but the last entry of the array. Conceptually the 
++  // same as calling pop(), but doesn't mutate the array passed in.
++  _.init = function(array) {
++    var init = _.clone(array);
++    init.pop();
++    return init;
++  };
++
++  // Returns a new array, with the entries or the passed-in array in reverse
++  // order.
++  _.reverse = function(array) {
++    var reverse = _.clone(array);
++    return reverse.reverse();
++  };
+ 
+   /* ----------------------- Function Functions: -----------------------------*/
+ 
+@@ -501,6 +524,7 @@
+ 
+   /*------------------------------- Aliases ----------------------------------*/
+ 
++  _.head     = _.first;
+   _.forEach  = _.each;
+   _.foldl    = _.inject       = _.reduce;
+   _.foldr    = _.reduceRight;

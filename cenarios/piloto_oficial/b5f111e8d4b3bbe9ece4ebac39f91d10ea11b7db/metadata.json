@@ -1,0 +1,87 @@
+{
+  "project_url": "https://github.com/jashkenas/underscore",
+  "commits": {
+    "base": "86e6dd58c2817b40a1249e452cc915f3375e79a5",
+    "left": "f8e939d30ac53ba672e0f94a20f680d2b6badcfa",
+    "right": "4ed79d5f778e8e8eb5fa0232545ac719cf4c9d42",
+    "merge": "b5f111e8d4b3bbe9ece4ebac39f91d10ea11b7db"
+  },
+  "merge_committer_date": "2009-11-19T08:35:10-05:00",
+  "merge_subject": "Merge branch 'master' of git://github.com/lukesutton/underscore",
+  "parent_convention": "left=first parent; right=second parent",
+  "snapshot_scope": "only the six file-merge pairs from the official mining output",
+  "selected_files": [
+    {
+      "path": "test/utility.js",
+      "versions": {
+        "base": {
+          "file": "b5f111e8d4b3bbe9ece4ebac39f91d10ea11b7db/base/test/utility.js",
+          "commit_sha": "86e6dd58c2817b40a1249e452cc915f3375e79a5",
+          "sha256": "0f0df2b73f6efb43ca6c7ddc72bca4222e2c11f2cfce9da4272dacee7e631b12",
+          "bytes": 2395,
+          "lines": 54
+        },
+        "left": {
+          "file": "b5f111e8d4b3bbe9ece4ebac39f91d10ea11b7db/left/test/utility.js",
+          "commit_sha": "f8e939d30ac53ba672e0f94a20f680d2b6badcfa",
+          "sha256": "f170ca29a8495a9fb3ffb439febd3f4db9694084350f81fb91745b6446165a65",
+          "bytes": 2413,
+          "lines": 54
+        },
+        "right": {
+          "file": "b5f111e8d4b3bbe9ece4ebac39f91d10ea11b7db/right/test/utility.js",
+          "commit_sha": "4ed79d5f778e8e8eb5fa0232545ac719cf4c9d42",
+          "sha256": "c37172372e4aae6e010c2f1cb85b3c6fbb367a8df221b3084d91b4ba00cf7f2f",
+          "bytes": 2430,
+          "lines": 54
+        },
+        "merge": {
+          "file": "b5f111e8d4b3bbe9ece4ebac39f91d10ea11b7db/merge/test/utility.js",
+          "commit_sha": "b5f111e8d4b3bbe9ece4ebac39f91d10ea11b7db",
+          "sha256": "50a5583a3005224602ec2dcf69a4a0dcd1a5bcc0c105c2415edce147eea7fa61",
+          "bytes": 2448,
+          "lines": 54
+        }
+      },
+      "diffs": {
+        "base_left": {
+          "file": "b5f111e8d4b3bbe9ece4ebac39f91d10ea11b7db/diffs/base_left/test/utility.js.diff",
+          "from_sha": "86e6dd58c2817b40a1249e452cc915f3375e79a5",
+          "to_sha": "f8e939d30ac53ba672e0f94a20f680d2b6badcfa"
+        },
+        "base_right": {
+          "file": "b5f111e8d4b3bbe9ece4ebac39f91d10ea11b7db/diffs/base_right/test/utility.js.diff",
+          "from_sha": "86e6dd58c2817b40a1249e452cc915f3375e79a5",
+          "to_sha": "4ed79d5f778e8e8eb5fa0232545ac719cf4c9d42"
+        },
+        "base_merge": {
+          "file": "b5f111e8d4b3bbe9ece4ebac39f91d10ea11b7db/diffs/base_merge/test/utility.js.diff",
+          "from_sha": "86e6dd58c2817b40a1249e452cc915f3375e79a5",
+          "to_sha": "b5f111e8d4b3bbe9ece4ebac39f91d10ea11b7db"
+        },
+        "left_merge": {
+          "file": "b5f111e8d4b3bbe9ece4ebac39f91d10ea11b7db/diffs/left_merge/test/utility.js.diff",
+          "from_sha": "f8e939d30ac53ba672e0f94a20f680d2b6badcfa",
+          "to_sha": "b5f111e8d4b3bbe9ece4ebac39f91d10ea11b7db"
+        },
+        "right_merge": {
+          "file": "b5f111e8d4b3bbe9ece4ebac39f91d10ea11b7db/diffs/right_merge/test/utility.js.diff",
+          "from_sha": "4ed79d5f778e8e8eb5fa0232545ac719cf4c9d42",
+          "to_sha": "b5f111e8d4b3bbe9ece4ebac39f91d10ea11b7db"
+        }
+      },
+      "miningframework_row": {
+        "project": "underscore",
+        "merge commit": "b5f111e8d4b3bbe9ece4ebac39f91d10ea11b7db",
+        "file path": "test/utility.js",
+        "left additions": "[]",
+        "left deletions": "[]",
+        "left changes": "[49, 51]",
+        "right additions": "[]",
+        "right deletions": "[]",
+        "right changes": "[34, 35, 36, 37, 39, 40]",
+        "repo url": "https://github.com/jashkenas/underscore"
+      }
+    }
+  ]
+}

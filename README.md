@@ -16,6 +16,16 @@ Este repositório reúne **a mineração de repositórios, os critérios de sele
 
 O lote é uma seleção por conveniência para verificar a coleta. Não é uma amostra aleatória ou representativa e não foi selecionado pela presença conhecida de defeitos.
 
+## Arquivos prontos para análise por outro pesquisador
+
+- **[Pacote de cenários](cenarios/piloto_oficial/README.md):** cinco merges do piloto oficial, com base, Left, Right e merge dos seis arquivos selecionados.
+- **[Download do pacote ZIP](entrega/cenarios_merge_piloto.zip):** inclui 24 versões de código, 30 diffs por arquivo e 15 patches de contexto do projeto, além de critérios e metadados.
+- **[Índice dos arquivos e SHAs](cenarios/piloto_oficial/indice.csv):** localiza cada par arquivo–merge.
+
+Seu colega pode clonar este repositório ou extrair o ZIP e começar a comparar os arquivos. Não precisa instalar o MiningFramework para essa análise manual. Na pasta do pacote, `python verificar_pacote.py` confere sua integridade sem Git ou dependências externas.
+
+As quatro pastas de cada cenário contêm somente os arquivos selecionados. Os patches do projeto completo fornecem contexto adicional. Para executar todo o projeto histórico, é necessário recuperar seu checkout e as dependências apropriadas.
+
 ## Critérios e evidências
 
 - [Critérios de mineração](CRITERIOS_DE_MINERACAO.md): escolha dos projetos, recorte temporal, filtros e seleção do lote.
@@ -28,10 +38,14 @@ O lote é uma seleção por conveniência para verificar a coleta. Não é uma a
 | `scripts/executar_miningframework.ps1` | Wrapper do módulo oficial no ambiente provisionado |
 | `scripts/auditar_criterios_mineracao.py` | Conferência dos critérios nos seis registros oficiais |
 | `scripts/verificar_amostras.py` | Integridade das quádruplas e checagem de sintaxe de JavaScript |
+| `scripts/exportar_cenarios_piloto.py` | Exportação dos seis registros oficiais como código, diffs, metadados e ZIP |
+| `scripts/verificar_pacote_mineracao.py` | Verificação offline do pacote entregue |
 | `experimentos/miningframework/` | Projeto e SHAs fornecidos ao framework |
 | `resultados/miningframework/` | Saídas oficiais, logs, repetição e auditoria |
 | `resultados/underscore_pre2015/` | Tabelas e amostras da exploração anterior |
 | `resultados/jsfstmerge/` | Tabelas da exploração auxiliar Java |
+| `cenarios/piloto_oficial/` | Quatro versões e mudanças de todos os registros do piloto oficial |
+| `entrega/cenarios_merge_piloto.zip` | Pacote portátil para outro pesquisador |
 
 ## Reprodução rápida
 

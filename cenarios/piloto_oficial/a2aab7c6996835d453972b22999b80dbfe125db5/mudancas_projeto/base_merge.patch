@@ -1,0 +1,568 @@
+diff --git a/index.html b/index.html
+index 8e26a96..7332f4c 100644
+--- a/index.html
++++ b/index.html
+@@ -4,6 +4,7 @@
+   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+   <meta http-equiv="X-UA-Compatible" content="chrome=1">
+   <title>Underscore.js</title>
++  <script src="underscore.js"></script>
+   <style>
+     body {
+       font-size: 16px;
+diff --git a/test/collections.js b/test/collections.js
+index 3759a64..516dbf3 100644
+--- a/test/collections.js
++++ b/test/collections.js
+@@ -164,5 +164,12 @@ $(document).ready(function() {
+   test('collections: size', function() {
+     equals(_.size({one : 1, two : 2, three : 3}), 3, 'can compute the size of an object');
+   });
++  
++  test('collections: buildLookup', function() {
++    same(_.buildLookup([1,'hi']), {1:true, 'hi':true}, 'defaults values to true');
++    same(_.buildLookup([1,'hi'], 1), {1:1, 'hi':1}, 'can override value');
++    same(_.buildLookup({5:'five'}), {five: true}, 'making a map from an object uses its values');
++  });
++  
+ 
+ });
+diff --git a/test/objects.js b/test/objects.js
+index c1c4aa3..71e46bd 100644
+--- a/test/objects.js
++++ b/test/objects.js
+@@ -11,13 +11,13 @@ $(document).ready(function() {
+   });
+ 
+   test("objects: functions", function() {
+-    var expected = ["all", "any", "bind", "bindAll", "breakLoop", "clone", "compact",
++    var expected = ["alias", "all", "any", "bind", "bindAll", "breakLoop", "buildLookup", "clone", "compact",
+     "compose","defer", "delay", "detect", "each", "every", "extend", "filter", "first",
+     "flatten", "foldl", "foldr", "forEach", "functions", "head", "identity", "include",
+     "indexOf", "inject", "intersect", "invoke", "isArguments", "isArray", "isDate", "isElement", "isEmpty", "isEqual",
+     "isFunction", "isNaN", "isNull", "isNumber", "isRegExp", "isString", "isUndefined", "keys", "last", "lastIndexOf", "map", "max",
+     "methods", "min", "noConflict", "pluck", "range", "reduce", "reduceRight", "reject", "rest", "select",
+-    "size", "some", "sortBy", "sortedIndex", "tail", "tap", "template", "toArray", "uniq",
++    "size", "some", "sortBy", "sortedIndex", "tail", "tap", "template", "times", "toArray", "uniq",
+     "uniqueId", "values", "without", "wrap", "zip"];
+     ok(_(expected).isEqual(_.methods(_)), 'provides a sorted list of functions');
+     var obj = {a : 'dash', b : _.map, c : (/yo/), d : _.reduce};
+@@ -60,6 +60,8 @@ $(document).ready(function() {
+     ok(_.isEmpty([]), '[] is empty');
+     ok(!_.isEmpty({one : 1}), '{one : 1} is not empty');
+     ok(_.isEmpty({}), '{} is empty');
++    ok(_.isEmpty(null), 'null is empty');
++    ok(_.isEmpty(), 'undefined is empty');
+ 
+     var obj = {one : 1};
+     delete obj.one;
+@@ -183,4 +185,19 @@ $(document).ready(function() {
+       value();
+     ok(returned == 6 && intercepted == 6, 'can use tapped objects in a chain');
+   });
++  
++
++  test("objects: alias", function() {
++    _.alias('isEqual', 'isTheSame');
++    ok(_.isTheSame(9, 9), 'by default aliases methods on underscore');
++    delete _.isTheSame;
++    //
++    var o = { hi: function () {return 9;} };
++    _.alias(o, 'hi', 'ho');
++    equals(o.ho(), 9, 'can add an alias on another object');
++    _.alias(o, 'hi', 'there', 'sir');
++    ok(o.hi==o.sir, 'can add multiple aliases');
++  });
++  
++  
+ });
+diff --git a/test/utility.js b/test/utility.js
+index 763a480..1b365d2 100644
+--- a/test/utility.js
++++ b/test/utility.js
+@@ -29,6 +29,17 @@ $(document).ready(function() {
+     while(i++ < 100) ids.push(_.uniqueId());
+     equals(_.uniq(ids).length, ids.length, 'can generate a globally-unique stream of ids');
+   });
++  
++  test("utility: times", function() {
++    var vals = [];
++    _.times(3, function (i) { vals.push(i); });
++    ok(_.isEqual(vals, [0,1,2]), "is 0 indexed");
++    //
++    vals = [];
++    _(3).times(function (i) { vals.push(i); });
++    ok(_.isEqual(vals, [0,1,2]), "works as a wrapper");
++  });
++  
+ 
+   test("utility: template", function() {
+     var basicTemplate = _.template("<%= thing %> is gettin' on my noives!");
+@@ -42,6 +53,9 @@ $(document).ready(function() {
+     var quoteTemplate = _.template("It's its, not it's");
+     equals(quoteTemplate({}), "It's its, not it's");
+ 
++    var quoteInStatementAndBody = _.template("<% if(foo == 'bar'){ %>Statement quotes and 'quotes'.<% } %>");
++    equals(quoteInStatementAndBody({foo: "bar"}), "Statement quotes and 'quotes'.");
++
+     _.templateSettings = {
+       start       : '{{',
+       end         : '}}',
+@@ -55,6 +69,25 @@ $(document).ready(function() {
+     var customQuote = _.template("It's its, not it's");
+     equals(customQuote({}), "It's its, not it's");
+ 
++    var quoteInStatementAndBody = _.template("{{ if(foo == 'bar'){ }}Statement quotes and 'quotes'.{{ } }}");
++    equals(quoteInStatementAndBody({foo: "bar"}), "Statement quotes and 'quotes'.");
++
++    _.templateSettings = {
++      start       : '<?',
++      end         : '?>',
++      interpolate : /<\?=(.+?)\?>/g
++    };
++
++    var customWithSpecialChars = _.template("<ul><? for (key in people) { ?><li><?= people[key] ?></li><? } ?></ul>");
++    result = customWithSpecialChars({people : {moe : "Moe", larry : "Larry", curly : "Curly"}});
++    equals(result, "<ul><li>Moe</li><li>Larry</li><li>Curly</li></ul>", 'can run arbitrary javascript in templates');
++
++    var customWithSpecialCharsQuote = _.template("It's its, not it's");
++    equals(customWithSpecialCharsQuote({}), "It's its, not it's");
++
++    var quoteInStatementAndBody = _.template("<? if(foo == 'bar'){ ?>Statement quotes and 'quotes'.<? } ?>");
++    equals(quoteInStatementAndBody({foo: "bar"}), "Statement quotes and 'quotes'.");
++
+     _.templateSettings = {
+       start       : '{{',
+       end         : '}}',
+diff --git a/underscore-min.js b/underscore-min.js
+index 9492ae9..b850fca 100644
+--- a/underscore-min.js
++++ b/underscore-min.js
+@@ -12,6 +12,6 @@ var c=[];for(var d in a)q.call(a,d)&&c.push(d);return c};b.values=function(a){re
+ if(a.isEqual)return a.isEqual(c);if(b.isDate(a)&&b.isDate(c))return a.getTime()===c.getTime();if(b.isNaN(a)&&b.isNaN(c))return true;if(b.isRegExp(a)&&b.isRegExp(c))return a.source===c.source&&a.global===c.global&&a.ignoreCase===c.ignoreCase&&a.multiline===c.multiline;if(d!=="object")return false;if(a.length&&a.length!==c.length)return false;d=b.keys(a);var e=b.keys(c);if(d.length!=e.length)return false;for(var f in a)if(!b.isEqual(a[f],c[f]))return false;return true};b.isEmpty=function(a){return b.keys(a).length==
+ 0};b.isElement=function(a){return!!(a&&a.nodeType==1)};b.isArray=function(a){return!!(a&&a.concat&&a.unshift)};b.isArguments=function(a){return a&&b.isNumber(a.length)&&!a.concat&&!a.substr&&!a.apply&&!r.call(a,"length")};b.isFunction=function(a){return!!(a&&a.constructor&&a.call&&a.apply)};b.isString=function(a){return!!(a===""||a&&a.charCodeAt&&a.substr)};b.isNumber=function(a){return a===+a||p.call(a)==="[object Number]"};b.isDate=function(a){return!!(a&&a.getTimezoneOffset&&a.setUTCFullYear)};
+ b.isRegExp=function(a){return!!(a&&a.test&&a.exec&&(a.ignoreCase||a.ignoreCase===false))};b.isNaN=function(a){return b.isNumber(a)&&isNaN(a)};b.isNull=function(a){return a===null};b.isUndefined=function(a){return typeof a=="undefined"};b.noConflict=function(){j._=n;return this};b.identity=function(a){return a};b.breakLoop=function(){throw m;};var s=0;b.uniqueId=function(a){var c=s++;return a?a+c:c};b.templateSettings={start:"<%",end:"%>",interpolate:/<%=(.+?)%>/g};b.template=function(a,c){var d=b.templateSettings;
+-a=new Function("obj","var p=[],print=function(){p.push.apply(p,arguments);};with(obj){p.push('"+a.replace(/[\r\t\n]/g," ").replace(new RegExp("'(?=[^"+d.end[0]+"]*"+d.end+")","g"),"\t").split("'").join("\\'").split("\t").join("'").replace(d.interpolate,"',$1,'").split(d.start).join("');").split(d.end).join("p.push('")+"');}return p.join('');");return c?a(c):a};b.forEach=b.each;b.foldl=b.inject=b.reduce;b.foldr=b.reduceRight;b.filter=b.select;b.every=b.all;b.some=b.any;b.head=b.first;b.tail=b.rest;
+-b.methods=b.functions;var l=function(a,c){return c?b(a).chain():a};b.each(b.functions(b),function(a){var c=b[a];i.prototype[a]=function(){var d=b.toArray(arguments);o.call(d,this._wrapped);return l(c.apply(b,d),this._chain)}});b.each(["pop","push","reverse","shift","sort","splice","unshift"],function(a){var c=Array.prototype[a];i.prototype[a]=function(){c.apply(this._wrapped,arguments);return l(this._wrapped,this._chain)}});b.each(["concat","join","slice"],function(a){var c=Array.prototype[a];i.prototype[a]=
+-function(){return l(c.apply(this._wrapped,arguments),this._chain)}});i.prototype.chain=function(){this._chain=true;return this};i.prototype.value=function(){return this._wrapped}})();
++a=new Function("obj","var p=[],print=function(){p.push.apply(p,arguments);};with(obj){p.push('"+a.replace(/[\r\t\n]/g," ").replace(new RegExp("'(?=[^"+d.end[0]+"]*\\"+d.end.split("").join("\\")+")","g"),"\t").split("'").join("\\'").split("\t").join("'").replace(d.interpolate,"',$1,'").split(d.start).join("');").split(d.end).join("p.push('")+"');}return p.join('');");return c?a(c):a};b.forEach=b.each;b.foldl=b.inject=b.reduce;b.foldr=b.reduceRight;b.filter=b.select;b.every=b.all;b.some=b.any;b.head=
++b.first;b.tail=b.rest;b.methods=b.functions;var l=function(a,c){return c?b(a).chain():a};b.each(b.functions(b),function(a){var c=b[a];i.prototype[a]=function(){var d=b.toArray(arguments);o.call(d,this._wrapped);return l(c.apply(b,d),this._chain)}});b.each(["pop","push","reverse","shift","sort","splice","unshift"],function(a){var c=Array.prototype[a];i.prototype[a]=function(){c.apply(this._wrapped,arguments);return l(this._wrapped,this._chain)}});b.each(["concat","join","slice"],function(a){var c=
++Array.prototype[a];i.prototype[a]=function(){return l(c.apply(this._wrapped,arguments),this._chain)}});i.prototype.chain=function(){this._chain=true;return this};i.prototype.value=function(){return this._wrapped}})();
+diff --git a/underscore.js b/underscore.js
+index faadaeb..26a15e3 100644
+--- a/underscore.js
++++ b/underscore.js
+@@ -30,13 +30,36 @@
+   // Export the Underscore object for CommonJS.
+   if (typeof exports !== 'undefined') exports._ = _;
+ 
++  // Quick regexp-escaping function, because JS doesn't have RegExp.escape().
++  var escapeRegExp = function(s) { return s.replace(/([.*+?^${}()|[\]\/\\])/g, '\\$1'); };
++
++  // Save bytes in the minified (but not gzipped) version:
++  var ArrayPrototype = Array.prototype;
++  
+   // Create quick reference variables for speed access to core prototypes.
+-  var slice                 = Array.prototype.slice,
+-      unshift               = Array.prototype.unshift,
++  var slice                 = ArrayPrototype.slice,
++      unshift               = ArrayPrototype.unshift,
+       toString              = Object.prototype.toString,
+       hasOwnProperty        = Object.prototype.hasOwnProperty,
+       propertyIsEnumerable  = Object.prototype.propertyIsEnumerable;
+ 
++  // All native implementations we hope to use are declared here.
++  // 'native' is on the long list of reserved words.  
++  // Ok to use as a property name, though jsLint doesn't agree.
++  var Native = _['native'] = {
++    forEach:        ArrayPrototype.forEach,
++    map:            ArrayPrototype.map,
++    reduce:         ArrayPrototype.reduce,
++    reduceRight:    ArrayPrototype.reduceRight,
++    filter:         ArrayPrototype.filter,
++    every:          ArrayPrototype.every,
++    some:           ArrayPrototype.some,
++    indexOf:        ArrayPrototype.indexOf,
++    lastIndexOf:    ArrayPrototype.lastIndexOf,
++    isArray:        Array.isArray,
++    keys:           Object.keys
++  };
++  
+   // Current version.
+   _.VERSION = '0.5.8';
+ 
+@@ -44,10 +67,12 @@
+ 
+   // The cornerstone, an each implementation.
+   // Handles objects implementing forEach, arrays, and raw objects.
+-  _.each = function(obj, iterator, context) {
++  // Delegates to JavaScript 1.6's native forEach if available.
++  var each = 
++  _.forEach = function(obj, iterator, context) {
+     var index = 0;
+     try {
+-      if (obj.forEach) {
++      if (obj.forEach === Native.forEach) {
+         obj.forEach(iterator, context);
+       } else if (_.isNumber(obj.length)) {
+         for (var i=0, l=obj.length; i<l; i++) iterator.call(context, obj[i], i, obj);
+@@ -61,42 +86,40 @@
+     return obj;
+   };
+ 
+-  // Return the results of applying the iterator to each element. Use JavaScript
+-  // 1.6's version of map, if possible.
++  // Return the results of applying the iterator to each element. 
++  // Delegates to JavaScript 1.6's native map if available.
+   _.map = function(obj, iterator, context) {
+-    if (obj && _.isFunction(obj.map)) return obj.map(iterator, context);
++    if (obj.map === Native.map) return obj.map(iterator, context);
+     var results = [];
+-    _.each(obj, function(value, index, list) {
++    each(obj, function(value, index, list) {
+       results.push(iterator.call(context, value, index, list));
+     });
+     return results;
+   };
+ 
+   // Reduce builds up a single result from a list of values. Also known as
+-  // inject, or foldl. Uses JavaScript 1.8's version of reduce, if possible.
++  // inject, or foldl.
++  // Delegates to JavaScript 1.8's native reduce if available.
+   _.reduce = function(obj, memo, iterator, context) {
+-    if (obj && _.isFunction(obj.reduce)) return obj.reduce(_.bind(iterator, context), memo);
+-    _.each(obj, function(value, index, list) {
++    if (obj.reduce === Native.reduce) return obj.reduce(_.bind(iterator, context), memo);
++    each(obj, function(value, index, list) {
+       memo = iterator.call(context, memo, value, index, list);
+     });
+     return memo;
+   };
+ 
+   // The right-associative version of reduce, also known as foldr. Uses
+-  // JavaScript 1.8's version of reduceRight, if available.
++  // Delegates to JavaScript 1.8's native reduceRight if available.
+   _.reduceRight = function(obj, memo, iterator, context) {
+-    if (obj && _.isFunction(obj.reduceRight)) return obj.reduceRight(_.bind(iterator, context), memo);
++    if (obj.reduceRight === Native.reduceRight) return obj.reduceRight(_.bind(iterator, context), memo);
+     var reversed = _.clone(_.toArray(obj)).reverse();
+-    _.each(reversed, function(value, index) {
+-      memo = iterator.call(context, memo, value, index, obj);
+-    });
+-    return memo;
++    return reduce(reversed, memo, iterator, context);
+   };
+ 
+   // Return the first value which passes a truth test.
+   _.detect = function(obj, iterator, context) {
+     var result;
+-    _.each(obj, function(value, index, list) {
++    each(obj, function(value, index, list) {
+       if (iterator.call(context, value, index, list)) {
+         result = value;
+         _.breakLoop();
+@@ -105,12 +128,12 @@
+     return result;
+   };
+ 
+-  // Return all the elements that pass a truth test. Use JavaScript 1.6's
+-  // filter(), if it exists.
+-  _.select = function(obj, iterator, context) {
+-    if (obj && _.isFunction(obj.filter)) return obj.filter(iterator, context);
++  // Return all the elements that pass a truth test. 
++  // Delegates to JavaScript 1.6's native filter if available.
++  _.filter = function(obj, iterator, context) {
++    if (obj.filter === Native.filter) return obj.filter(iterator, context);
+     var results = [];
+-    _.each(obj, function(value, index, list) {
++    each(obj, function(value, index, list) {
+       iterator.call(context, value, index, list) && results.push(value);
+     });
+     return results;
+@@ -119,45 +142,42 @@
+   // Return all the elements for which a truth test fails.
+   _.reject = function(obj, iterator, context) {
+     var results = [];
+-    _.each(obj, function(value, index, list) {
++    each(obj, function(value, index, list) {
+       !iterator.call(context, value, index, list) && results.push(value);
+     });
+     return results;
+   };
+ 
+-  // Determine whether all of the elements match a truth test. Delegate to
+-  // JavaScript 1.6's every(), if it is present.
+-  _.all = function(obj, iterator, context) {
++  // Determine whether all of the elements match a truth test. 
++  // Delegates to JavaScript 1.6's native every if available.
++  _.every = function(obj, iterator, context) {
+     iterator = iterator || _.identity;
+-    if (obj && _.isFunction(obj.every)) return obj.every(iterator, context);
++    if (obj.every === Native.every) return obj.every(iterator, context);
+     var result = true;
+-    _.each(obj, function(value, index, list) {
++    each(obj, function(value, index, list) {
+       if (!(result = result && iterator.call(context, value, index, list))) _.breakLoop();
+     });
+     return result;
+   };
+ 
+-  // Determine if at least one element in the object matches a truth test. Use
+-  // JavaScript 1.6's some(), if it exists.
+-  _.any = function(obj, iterator, context) {
++  // Determine if at least one element in the object matches a truth test.
++  // Delegates to JavaScript 1.6's native some if available.
++  _.some = function(obj, iterator, context) {
+     iterator = iterator || _.identity;
+-    if (obj && _.isFunction(obj.some)) return obj.some(iterator, context);
++    if (obj.some === Native.some) return obj.some(iterator, context);
+     var result = false;
+-    _.each(obj, function(value, index, list) {
++    each(obj, function(value, index, list) {
+       if (result = iterator.call(context, value, index, list)) _.breakLoop();
+     });
+     return result;
+   };
+ 
+-  // Determine if a given value is included in the array or object,
+-  // based on '==='.
++  // Determine if a given value is included in the array or object using '==='.
+   _.include = function(obj, target) {
+     if (obj && _.isFunction(obj.indexOf)) return _.indexOf(obj, target) != -1;
+-    var found = false;
+-    _.each(obj, function(value) {
+-      if (found = value === target) _.breakLoop();
++    return !! _.detect(obj, function(value) {
++      return value === target;
+     });
+-    return found;
+   };
+ 
+   // Invoke a method with arguments on every item in a collection.
+@@ -177,7 +197,7 @@
+   _.max = function(obj, iterator, context) {
+     if (!iterator && _.isArray(obj)) return Math.max.apply(Math, obj);
+     var result = {computed : -Infinity};
+-    _.each(obj, function(value, index, list) {
++    each(obj, function(value, index, list) {
+       var computed = iterator ? iterator.call(context, value, index, list) : value;
+       computed >= result.computed && (result = {value : value, computed : computed});
+     });
+@@ -188,7 +208,7 @@
+   _.min = function(obj, iterator, context) {
+     if (!iterator && _.isArray(obj)) return Math.min.apply(Math, obj);
+     var result = {computed : Infinity};
+-    _.each(obj, function(value, index, list) {
++    each(obj, function(value, index, list) {
+       var computed = iterator ? iterator.call(context, value, index, list) : value;
+       computed < result.computed && (result = {value : value, computed : computed});
+     });
+@@ -233,6 +253,24 @@
+   _.size = function(obj) {
+     return _.toArray(obj).length;
+   };
++  
++  // Build a lookup map from a collection.
++  // Pay a little memory upfront to make searching a collection for a 
++  // value faster later
++  // e.g:
++  //
++  //  var lookup = _.buildLookup([1,2,8])  // {1: true, 2: true, 8: true}
++  //  lookup[key]   // instead of: _.include(array, key)
++  //
++  // See example usage in #without
++  // By default sets the value to true, can pass in a value to use instead
++  _.buildLookup = function (obj, useValue) {
++    useValue = (useValue === undefined)?  true :  useValue;
++    return _.reduce(obj, {}, function (memo, value) {  
++      memo[value] = useValue;  
++      return memo;
++    });
++  };   
+ 
+   // -------------------------- Array Functions: ------------------------------
+ 
+@@ -272,8 +310,8 @@
+ 
+   // Return a version of the array that does not contain the specified value(s).
+   _.without = function(array) {
+-    var values = _.rest(arguments);
+-    return _.select(array, function(value){ return !_.include(values, value); });
++    var lookup = _.buildLookup(_.rest(arguments));
++    return _.filter(array, function(value){ return !lookup[value]; });
+   };
+ 
+   // Produce a duplicate-free version of the array. If the array has already
+@@ -309,16 +347,17 @@
+   // If the browser doesn't supply us with indexOf (I'm looking at you, MSIE),
+   // we need this function. Return the position of the first occurence of an
+   // item in an array, or -1 if the item is not included in the array.
++  // Delegates to JavaScript 1.8's native indexOf if available.
+   _.indexOf = function(array, item) {
+-    if (array.indexOf) return array.indexOf(item);
++    if (array.indexOf === Native.indexOf) return array.indexOf(item);
+     for (var i=0, l=array.length; i<l; i++) if (array[i] === item) return i;
+     return -1;
+   };
+ 
+-  // Provide JavaScript 1.6's lastIndexOf, delegating to the native function,
+-  // if possible.
++
++  // Delegates to JavaScript 1.6's native lastIndexOf if available.
+   _.lastIndexOf = function(array, item) {
+-    if (array.lastIndexOf) return array.lastIndexOf(item);
++    if (array.lastIndexOf === Native.lastIndexOf) return array.lastIndexOf(item);
+     var i = array.length;
+     while (i--) if (array[i] === item) return i;
+     return -1;
+@@ -356,7 +395,7 @@
+   _.bindAll = function(obj) {
+     var funcs = _.rest(arguments);
+     if (funcs.length == 0) funcs = _.functions(obj);
+-    _.each(funcs, function(f) { obj[f] = _.bind(obj[f], obj); });
++    each(funcs, function(f) { obj[f] = _.bind(obj[f], obj); });
+     return obj;
+   };
+ 
+@@ -399,7 +438,8 @@
+   // ------------------------- Object Functions: ------------------------------
+ 
+   // Retrieve the names of an object's properties.
+-  _.keys = function(obj) {
++  // Delegates to ECMA5's native Object.keys
++  _.keys = Native.keys || function(obj) {
+     if (_.isArray(obj)) return _.range(0, obj.length);
+     var keys = [];
+     for (var key in obj) if (hasOwnProperty.call(obj, key)) keys.push(key);
+@@ -435,6 +475,31 @@
+     return obj;
+   };
+ 
++  // Alias a method on an object to another name(s).
++  // If the first argument is NOT an object, then the object is assumed to 
++  // be underscore.
++  // The first string argument is the existing method name, any following
++  // strings will be aliased to that name.  
++  // Returns the object for chainability.
++  //
++  // Examples:
++  //
++  // Alias isEquals to isSame and eql on underscore:
++  //    _.alias('isEqual', 'isSame', 'eql');
++  //
++  // Alias `toString` to `to_s` on a given object: 
++  //    _.alias({}, 'toString', 'to_s')
++  //
++  // Implementation: explicitly cast arguments to array as calling mutating
++  // array methods on arguments object has strange behavior (at least in FF 3.6) 
++  _.alias = function () {
++    var args = _.toArray(arguments), 
++        obj = (typeof args[0] === 'string')?  _ : args.shift(),
++        fn = obj[args.shift()];
++    each(args, function (alias) {  obj[alias] = fn;  });
++    return obj;
++  };
++
+   // Perform a deep comparison to check if two objects are equal.
+   _.isEqual = function(a, b) {
+     // Check object identity.
+@@ -473,7 +538,9 @@
+ 
+   // Is a given array or object empty?
+   _.isEmpty = function(obj) {
+-    return _.keys(obj).length == 0;
++    if (_.isArray(obj)) return obj.length === 0;
++    for (var k in obj) return false;
++    return true;
+   };
+ 
+   // Is a given value a DOM element?
+@@ -482,7 +549,8 @@
+   };
+ 
+   // Is a given value an array?
+-  _.isArray = function(obj) {
++  // Delegates to ECMA5's native Array.isArray
++  _.isArray = Native.isArray || function(obj) {
+     return !!(obj && obj.concat && obj.unshift);
+   };
+ 
+@@ -545,6 +613,13 @@
+   _.identity = function(value) {
+     return value;
+   };
++  
++  // run a function n times.  
++  // looks good in wrapper form:
++  //    _(3).times(alert)
++  _.times = function (n, fn, context) {
++    for (var i=0; i < n; i++)  fn.call(context, i)
++  };
+ 
+   // Break out of the middle of an iteration.
+   _.breakLoop = function() {
+@@ -576,7 +651,7 @@
+       'var p=[],print=function(){p.push.apply(p,arguments);};' +
+       'with(obj){p.push(\'' +
+       str.replace(/[\r\t\n]/g, " ")
+-         .replace(new RegExp("'(?=[^"+c.end[0]+"]*"+c.end+")","g"),"\t")
++         .replace(new RegExp("'(?=[^"+c.end[0]+"]*"+escapeRegExp(c.end)+")","g"),"\t")
+          .split("'").join("\\'")
+          .split("\t").join("'")
+          .replace(c.interpolate, "',$1,'")
+@@ -588,15 +663,15 @@
+ 
+   // ------------------------------- Aliases ----------------------------------
+ 
+-  _.forEach  = _.each;
+-  _.foldl    = _.inject       = _.reduce;
+-  _.foldr    = _.reduceRight;
+-  _.filter   = _.select;
+-  _.every    = _.all;
+-  _.some     = _.any;
+-  _.head     = _.first;
+-  _.tail     = _.rest;
+-  _.methods  = _.functions;
++  _.alias('forEach', 'each').
++    alias('reduce', 'foldl', 'inject').
++    alias('reduceRight', 'foldr').
++    alias('filter', 'select').
++    alias('every', 'all').
++    alias('some', 'any').
++    alias('first', 'head').
++    alias('rest', 'tail').
++    alias('functions', 'methods');
+ 
+   // ------------------------ Setup the OOP Wrapper: --------------------------
+ 
+@@ -606,7 +681,7 @@
+   };
+ 
+   // Add all of the Underscore functions to the wrapper object.
+-  _.each(_.functions(_), function(name) {
++  each(_.functions(_), function(name) {
+     var method = _[name];
+     wrapper.prototype[name] = function() {
+       var args = _.toArray(arguments);
+@@ -616,8 +691,8 @@
+   });
+ 
+   // Add all mutator Array functions to the wrapper.
+-  _.each(['pop', 'push', 'reverse', 'shift', 'sort', 'splice', 'unshift'], function(name) {
+-    var method = Array.prototype[name];
++  each(['pop', 'push', 'reverse', 'shift', 'sort', 'splice', 'unshift'], function(name) {
++    var method = ArrayPrototype[name];
+     wrapper.prototype[name] = function() {
+       method.apply(this._wrapped, arguments);
+       return result(this._wrapped, this._chain);
+@@ -625,8 +700,8 @@
+   });
+ 
+   // Add all accessor Array functions to the wrapper.
+-  _.each(['concat', 'join', 'slice'], function(name) {
+-    var method = Array.prototype[name];
++  each(['concat', 'join', 'slice'], function(name) {
++    var method = ArrayPrototype[name];
+     wrapper.prototype[name] = function() {
+       return result(method.apply(this._wrapped, arguments), this._chain);
+     };
