@@ -1,0 +1,47 @@
+{
+  "samples_verified": 5,
+  "versions_verified": 20,
+  "records": [
+    {
+      "sample_id": "2b9a011e070b_246afe7b9e",
+      "parents_verified": true,
+      "base_verified": true,
+      "four_versions_byte_identical": true,
+      "sha256_verified": true,
+      "node_syntax_check": "passed"
+    },
+    {
+      "sample_id": "8c15ae153aae_246afe7b9e",
+      "parents_verified": true,
+      "base_verified": true,
+      "four_versions_byte_identical": true,
+      "sha256_verified": true,
+      "node_syntax_check": "passed"
+    },
+    {
+      "sample_id": "a2aab7c69968_bf259f0bc2",
+      "parents_verified": true,
+      "base_verified": true,
+      "four_versions_byte_identical": true,
+      "sha256_verified": true,
+      "node_syntax_check": "passed"
+    },
+    {
+      "sample_id": "b5f111e8d4b3_bf259f0bc2",
+      "parents_verified": true,
+      "base_verified": true,
+      "four_versions_byte_identical": true,
+      "sha256_verified": true,
+      "node_syntax_check": "passed"
+    },
+    {
+      "sample_id": "e863fbf285f7_246afe7b9e",
+      "parents_verified": true,
+      "base_verified": true,
+      "four_versions_byte_identical": true,
+      "sha256_verified": true,
+      "node_syntax_check": "passed"
+    }
+  ],
+  "note": "Checks de integridade e sintaxe; nao verificam conflitos semanticos nem compatibilidade Jalangi2."
+}

@@ -1,0 +1,21 @@
+{
+  "miningframework_repo": "https://github.com/spgroup/miningframework",
+  "miningframework_sha": "7a9503f0e3af110fb0028fb02753d4c4a627266e",
+  "injector": "injectors.DynamicAnalysisJsModifiedLinesDetectionModule",
+  "build_modifications": [
+    "Gradle application.mainClass API",
+    "Java toolchain 21 instead of 17"
+  ],
+  "source_algorithm_modified": false,
+  "selected_merges": 5,
+  "collected_file_merge_pairs": 6,
+  "runtime_root": "C:\\Users\\Public\\codex-merge-pilot",
+  "java_runtime": "Eclipse Adoptium 21.0.8.9",
+  "gradle": "8.13",
+  "groovy": "3.0.23",
+  "jalangi2_sha": "bc879287b1678de6e3c423f5debe63207559525b",
+  "jalangi2_package_version": "0.2.6",
+  "node_version": "v24.14.1",
+  "oa_detector_executed": false,
+  "output_csv_sha256": "decbd2c0aa9c8587bb6ae986ce0d461686fdbe25d2b91839c9089a40afc13c55"
+}

@@ -1,0 +1,33 @@
+{
+  "repository": "https://github.com/AlbertoTrindade/jsFSTMerge.git",
+  "head_sha": "f85afb916754e3fc05636db6dfa2dd652c6508fe",
+  "history_scope": "ancestors of frozen HEAD",
+  "shallow": false,
+  "git_version": "git version 2.55.0.windows.5",
+  "executed_at_utc": "2026-10-29T09:53:31.894623+00:00",
+  "extensions": [
+    ".java",
+    ".js"
+  ],
+  "until_inclusive_committer_calendar_date": null,
+  "cutoff_note": "Conservative pilot cutoff; not asserted to be Amanda's exact cutoff",
+  "all_merges_reachable_from_head": 13,
+  "excluded_after_cutoff": 0,
+  "merges_in_scope": 13,
+  "merge_status_counts": {
+    "excluded_ancestor_parent": 5,
+    "no_common_selected_extension": 2,
+    "candidate": 6
+  },
+  "candidate_merges": 6,
+  "candidate_files": 11,
+  "files_by_extension": {
+    ".java": 11
+  },
+  "candidate_files_with_four_versions": 10,
+  "exported_samples": 5,
+  "export_policy": "first available in reverse topological log; convenience sample",
+  "original_miningframework_executed": false,
+  "semantic_detector_executed": false,
+  "script_sha256": "4d698827a8e2c829043aba168884eea838b8c71e5280b9b7051ba75ba714d419"
+}

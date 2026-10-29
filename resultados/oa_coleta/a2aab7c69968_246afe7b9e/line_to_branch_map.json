@@ -1,0 +1,3612 @@
+{
+  "runtime_path": "C:\\Users\\Convidado!\\OneDrive\\Documentos\\ChatGPT\\replicação\\experimentos\\oa_coleta\\a2aab7c69968_246afe7b9e\\merge.js",
+  "source_path": "underscore.js",
+  "source_sha256": "b61f0270830bd57042cfb226f33705b525ff9258aa98d2d466efeda14ed07b86",
+  "merge_sha": "a2aab7c6996835d453972b22999b80dbfe125db5",
+  "left_sha": "875633141a9344ceb69bbb494aec77129ef34abf",
+  "right_sha": "31f0f8c54cb5211cc48f6a1ee92fcedc4ed89a20",
+  "base_sha": "11e7af06e9f92d290acaef68cbd175a7fbaee46e",
+  "lines": {
+    "1": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "2": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "3": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "4": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "5": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "6": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "7": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "8": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "9": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "10": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "11": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "12": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "13": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "14": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "15": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "16": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "17": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "18": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "19": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "20": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "21": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "22": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "23": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "24": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "25": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "26": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "27": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "28": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "29": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "30": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "31": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "32": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "33": {
+      "origin": "L",
+      "evidence": [
+        {
+          "branch": "L",
+          "parent_line": 33
+        }
+      ]
+    },
+    "34": {
+      "origin": "L",
+      "evidence": [
+        {
+          "branch": "L",
+          "parent_line": 34
+        }
+      ]
+    },
+    "35": {
+      "origin": "L",
+      "evidence": [
+        {
+          "branch": "L",
+          "parent_line": 35
+        }
+      ]
+    },
+    "36": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 33
+        }
+      ]
+    },
+    "37": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 34
+        }
+      ]
+    },
+    "38": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 35
+        }
+      ]
+    },
+    "39": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "40": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 37
+        }
+      ]
+    },
+    "41": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 38
+        }
+      ]
+    },
+    "42": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "43": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "44": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "45": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "46": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 43
+        }
+      ]
+    },
+    "47": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 44
+        }
+      ]
+    },
+    "48": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 45
+        }
+      ]
+    },
+    "49": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 46
+        }
+      ]
+    },
+    "50": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 47
+        }
+      ]
+    },
+    "51": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 48
+        }
+      ]
+    },
+    "52": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 49
+        }
+      ]
+    },
+    "53": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 50
+        }
+      ]
+    },
+    "54": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 51
+        }
+      ]
+    },
+    "55": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 52
+        }
+      ]
+    },
+    "56": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 53
+        }
+      ]
+    },
+    "57": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 54
+        }
+      ]
+    },
+    "58": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 55
+        }
+      ]
+    },
+    "59": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 56
+        }
+      ]
+    },
+    "60": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 57
+        }
+      ]
+    },
+    "61": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 58
+        }
+      ]
+    },
+    "62": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 59
+        }
+      ]
+    },
+    "63": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "64": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "65": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "66": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "67": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "68": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "69": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "70": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 67
+        }
+      ]
+    },
+    "71": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 68
+        }
+      ]
+    },
+    "72": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 69
+        }
+      ]
+    },
+    "73": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "74": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "75": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 72
+        }
+      ]
+    },
+    "76": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "77": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "78": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "79": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "80": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "81": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "82": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "83": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "84": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "85": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "86": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "87": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "88": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "89": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 86
+        }
+      ]
+    },
+    "90": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 87
+        }
+      ]
+    },
+    "91": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "92": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 89
+        }
+      ]
+    },
+    "93": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "94": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 91
+        }
+      ]
+    },
+    "95": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "96": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "97": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "98": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "99": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "100": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "101": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 98
+        }
+      ]
+    },
+    "102": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 99
+        }
+      ]
+    },
+    "103": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "104": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 101
+        }
+      ]
+    },
+    "105": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 102
+        }
+      ]
+    },
+    "106": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "107": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "108": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "109": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "110": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "111": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "112": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 109
+        }
+      ]
+    },
+    "113": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "114": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 111
+        }
+      ]
+    },
+    "115": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "116": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 113
+        }
+      ]
+    },
+    "117": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "118": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "119": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "120": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "121": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "122": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 119
+        }
+      ]
+    },
+    "123": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "124": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "125": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "126": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "127": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "128": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "129": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "130": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "131": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 128
+        }
+      ]
+    },
+    "132": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 129
+        }
+      ]
+    },
+    "133": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 130
+        }
+      ]
+    },
+    "134": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 131
+        }
+      ]
+    },
+    "135": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "136": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 133
+        }
+      ]
+    },
+    "137": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "138": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "139": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "140": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "141": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "142": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "143": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "144": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "145": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 142
+        }
+      ]
+    },
+    "146": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "147": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "148": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "149": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "150": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "151": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 148
+        }
+      ]
+    },
+    "152": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 149
+        }
+      ]
+    },
+    "153": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 150
+        }
+      ]
+    },
+    "154": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "155": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 152
+        }
+      ]
+    },
+    "156": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "157": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 154
+        }
+      ]
+    },
+    "158": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "159": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "160": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "161": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "162": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "163": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 160
+        }
+      ]
+    },
+    "164": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 161
+        }
+      ]
+    },
+    "165": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 162
+        }
+      ]
+    },
+    "166": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "167": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 164
+        }
+      ]
+    },
+    "168": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "169": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 166
+        }
+      ]
+    },
+    "170": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "171": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "172": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "173": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "174": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "175": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 172
+        }
+      ]
+    },
+    "176": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "177": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "178": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 175
+        }
+      ]
+    },
+    "179": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 176
+        }
+      ]
+    },
+    "180": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "181": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "182": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "183": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "184": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "185": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "186": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "187": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "188": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "189": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "190": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "191": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "192": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "193": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "194": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "195": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "196": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "197": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "198": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "199": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "200": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 197
+        }
+      ]
+    },
+    "201": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "202": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "203": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "204": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "205": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "206": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "207": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "208": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "209": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "210": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "211": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 208
+        }
+      ]
+    },
+    "212": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "213": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "214": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "215": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "216": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "217": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "218": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "219": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "220": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "221": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "222": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "223": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "224": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "225": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "226": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "227": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "228": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "229": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "230": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "231": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "232": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "233": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "234": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "235": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "236": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "237": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "238": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "239": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "240": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "241": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "242": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "243": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "244": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "245": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "246": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "247": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "248": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "249": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "250": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "251": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "252": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "253": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "254": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "255": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "256": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 253
+        }
+      ]
+    },
+    "257": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 254
+        }
+      ]
+    },
+    "258": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 255
+        }
+      ]
+    },
+    "259": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 256
+        }
+      ]
+    },
+    "260": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 257
+        }
+      ]
+    },
+    "261": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 258
+        }
+      ]
+    },
+    "262": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 259
+        }
+      ]
+    },
+    "263": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 260
+        }
+      ]
+    },
+    "264": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 261
+        }
+      ]
+    },
+    "265": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 262
+        }
+      ]
+    },
+    "266": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 263
+        }
+      ]
+    },
+    "267": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 264
+        }
+      ]
+    },
+    "268": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 265
+        }
+      ]
+    },
+    "269": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 266
+        }
+      ]
+    },
+    "270": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 267
+        }
+      ]
+    },
+    "271": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 268
+        }
+      ]
+    },
+    "272": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 269
+        }
+      ]
+    },
+    "273": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 270
+        }
+      ]
+    },
+    "274": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "275": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "276": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "277": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "278": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "279": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "280": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "281": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "282": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "283": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "284": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "285": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "286": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "287": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "288": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "289": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "290": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "291": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "292": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "293": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "294": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "295": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "296": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "297": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "298": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "299": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "300": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "301": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "302": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "303": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "304": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "305": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "306": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "307": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "308": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "309": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "310": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "311": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "312": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "313": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 310
+        }
+      ]
+    },
+    "314": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 311
+        }
+      ]
+    },
+    "315": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "316": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "317": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "318": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "319": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "320": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "321": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "322": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "323": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "324": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "325": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "326": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "327": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "328": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "329": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "330": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "331": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "332": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "333": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "334": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "335": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "336": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "337": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "338": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "339": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "340": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "341": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "342": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "343": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "344": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "345": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "346": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "347": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "348": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "349": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "350": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 347
+        }
+      ]
+    },
+    "351": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "352": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 349
+        }
+      ]
+    },
+    "353": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "354": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "355": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "356": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "357": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 354
+        }
+      ]
+    },
+    "358": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 355
+        }
+      ]
+    },
+    "359": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "360": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 357
+        }
+      ]
+    },
+    "361": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "362": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "363": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "364": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "365": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "366": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "367": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "368": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "369": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "370": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "371": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "372": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "373": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "374": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "375": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "376": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "377": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "378": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "379": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "380": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "381": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "382": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "383": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "384": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "385": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "386": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "387": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "388": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "389": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "390": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "391": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "392": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "393": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "394": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "395": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "396": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "397": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "398": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 395
+        }
+      ]
+    },
+    "399": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "400": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "401": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "402": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "403": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "404": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "405": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "406": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "407": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "408": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "409": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "410": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "411": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "412": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "413": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "414": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "415": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "416": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "417": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "418": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "419": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "420": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "421": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "422": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "423": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "424": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "425": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "426": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "427": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "428": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "429": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "430": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "431": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "432": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "433": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "434": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "435": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "436": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "437": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "438": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "439": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "440": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "441": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 438
+        }
+      ]
+    },
+    "442": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 439
+        }
+      ]
+    },
+    "443": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "444": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "445": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "446": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "447": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "448": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "449": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "450": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "451": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "452": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "453": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "454": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "455": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "456": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "457": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "458": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "459": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "460": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "461": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "462": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "463": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "464": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "465": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "466": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "467": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "468": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "469": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "470": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "471": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "472": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "473": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "474": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "475": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "476": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "477": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "478": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 475
+        }
+      ]
+    },
+    "479": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 476
+        }
+      ]
+    },
+    "480": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 477
+        }
+      ]
+    },
+    "481": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 478
+        }
+      ]
+    },
+    "482": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 479
+        }
+      ]
+    },
+    "483": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 480
+        }
+      ]
+    },
+    "484": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 481
+        }
+      ]
+    },
+    "485": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 482
+        }
+      ]
+    },
+    "486": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 483
+        }
+      ]
+    },
+    "487": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 484
+        }
+      ]
+    },
+    "488": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 485
+        }
+      ]
+    },
+    "489": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 486
+        }
+      ]
+    },
+    "490": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 487
+        }
+      ]
+    },
+    "491": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 488
+        }
+      ]
+    },
+    "492": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 489
+        }
+      ]
+    },
+    "493": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 490
+        }
+      ]
+    },
+    "494": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 491
+        }
+      ]
+    },
+    "495": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 492
+        }
+      ]
+    },
+    "496": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 493
+        }
+      ]
+    },
+    "497": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 494
+        }
+      ]
+    },
+    "498": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 495
+        }
+      ]
+    },
+    "499": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 496
+        }
+      ]
+    },
+    "500": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 497
+        }
+      ]
+    },
+    "501": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 498
+        }
+      ]
+    },
+    "502": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 499
+        }
+      ]
+    },
+    "503": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "504": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "505": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "506": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "507": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "508": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "509": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "510": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "511": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "512": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "513": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "514": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "515": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "516": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "517": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "518": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "519": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "520": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "521": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "522": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "523": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "524": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "525": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "526": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "527": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "528": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "529": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "530": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "531": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "532": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "533": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "534": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "535": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "536": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "537": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "538": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "539": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "540": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "541": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 538
+        }
+      ]
+    },
+    "542": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 539
+        }
+      ]
+    },
+    "543": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 540
+        }
+      ]
+    },
+    "544": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "545": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "546": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "547": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "548": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "549": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "550": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "551": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "552": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 549
+        }
+      ]
+    },
+    "553": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 550
+        }
+      ]
+    },
+    "554": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "555": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "556": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "557": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "558": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "559": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "560": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "561": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "562": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "563": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "564": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "565": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "566": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "567": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "568": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "569": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "570": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "571": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "572": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "573": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "574": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "575": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "576": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "577": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "578": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "579": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "580": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "581": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "582": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "583": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "584": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "585": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "586": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "587": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "588": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "589": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "590": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "591": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "592": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "593": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "594": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "595": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "596": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "597": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "598": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "599": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "600": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "601": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "602": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "603": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "604": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "605": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "606": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "607": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "608": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "609": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "610": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "611": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "612": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "613": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "614": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "615": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "616": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 613
+        }
+      ]
+    },
+    "617": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 614
+        }
+      ]
+    },
+    "618": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 615
+        }
+      ]
+    },
+    "619": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 616
+        }
+      ]
+    },
+    "620": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 617
+        }
+      ]
+    },
+    "621": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 618
+        }
+      ]
+    },
+    "622": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 619
+        }
+      ]
+    },
+    "623": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "624": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "625": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "626": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "627": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "628": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "629": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "630": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "631": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "632": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "633": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "634": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "635": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "636": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "637": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "638": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "639": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "640": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "641": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "642": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "643": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "644": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "645": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "646": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "647": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "648": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "649": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "650": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "651": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "652": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "653": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "654": {
+      "origin": "L",
+      "evidence": [
+        {
+          "branch": "L",
+          "parent_line": 582
+        }
+      ]
+    },
+    "655": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "656": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "657": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "658": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "659": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "660": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "661": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "662": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "663": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "664": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "665": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "666": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 663
+        }
+      ]
+    },
+    "667": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 664
+        }
+      ]
+    },
+    "668": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 665
+        }
+      ]
+    },
+    "669": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 666
+        }
+      ]
+    },
+    "670": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 667
+        }
+      ]
+    },
+    "671": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 668
+        }
+      ]
+    },
+    "672": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 669
+        }
+      ]
+    },
+    "673": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 670
+        }
+      ]
+    },
+    "674": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 671
+        }
+      ]
+    },
+    "675": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "676": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "677": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "678": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "679": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "680": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "681": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "682": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "683": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "684": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 681
+        }
+      ]
+    },
+    "685": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "686": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "687": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "688": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "689": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "690": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "691": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "692": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "693": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "694": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 691
+        }
+      ]
+    },
+    "695": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 692
+        }
+      ]
+    },
+    "696": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "697": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "698": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "699": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "700": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "701": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "702": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "703": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 700
+        }
+      ]
+    },
+    "704": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 701
+        }
+      ]
+    },
+    "705": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "706": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "707": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "708": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "709": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "710": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "711": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "712": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "713": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "714": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "715": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "716": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "717": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "718": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "719": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "720": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "721": {
+      "origin": "BASE",
+      "evidence": []
+    }
+  },
+  "method": "Git zero-context hunks; changed parent lines preserved in merge",
+  "cautions": [
+    "Heuristic diff alignment, not semantic provenance",
+    "No move/rename inference",
+    "SHARED and MERGE_ONLY require review; removed lines have no merge location",
+    "Line-level map does not separate operations on the same line"
+  ]
+}

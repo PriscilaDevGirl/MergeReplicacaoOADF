@@ -1,0 +1,13 @@
+﻿indicador,artigo_amanda,trabalho_atual,limite_da_comparacao
+Escopo,Estudo publicado em 2024,Replicacao metodologica em preparacao; piloto experimental,Nao e uma reproducao integral concluida
+Projetos na avaliacao empirica,50,1: Underscore no lote oficial,Coleta exploratoria incluiu tambem jsFSTMerge; nao confundir escopos
+Pares arquivo-merge avaliados/tentados,452,6,Amostras e criterios nao identicos
+Execucoes bem-sucedidas,159,4,"Original: 35,18%; piloto: 66,67%; nao indica superioridade"
+Erros de execucao,293,2,"Piloto: arquivos de teste sem contexto, $ is not defined"
+Alertas OA observados,1,0,Zero alerta nao comprova ausencia de conflito
+Validacao controlada,"69 casos avaliaveis, derivados de 71; 14 adaptados e 55 sem adaptacao conceitual",44 controles sinteticos aprovados,Suites distintas: nao comparar como precisao ou acuracia
+Analisador OA,Implementacao original da Amanda,Reimplementacao independente experimental v0.2,Equivalencia com o original nao demonstrada
+Ferramentas,MiningFramework e Jalangi2,MiningFramework oficial e Jalangi2 oficial; analisador proprio,Versoes do piloto fixadas; versoes originais nao recuperadas
+Mapas de origem,Mapas associados ao dataset original,6 mapas conservadores gerados a partir do Git,Exigem revisao; nao sao os mapas originais
+Desempenho,Experimento de overhead publicado,Benchmark comparavel ainda nao realizado,Tempos de verificacao locais nao equivalem ao benchmark
+Extensao com dataflow,Fora do nucleo OA aqui reproduzido,Ainda nao implementada; desenho a alinhar com orientador,Propagacao do contexto de chamadas nao e uma analise geral de dataflow

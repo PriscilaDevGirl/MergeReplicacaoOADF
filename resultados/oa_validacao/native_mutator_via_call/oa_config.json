@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "implementation": "independent-oa-v0.2",
+  "files": [
+    {
+      "runtime_path": "C:\\Users\\Convidado!\\OneDrive\\Documentos\\ChatGPT\\replicação\\experimentos\\oa_controles\\native_mutator_via_call\\program.js",
+      "source_sha256": "54e2b402334c2fd044ac95f04ffca88906c810e31d402e44862e7eb5b4e18af2",
+      "lines": {
+        "1": {
+          "origin": "BASE"
+        },
+        "2": {
+          "origin": "L"
+        },
+        "3": {
+          "origin": "BASE"
+        },
+        "4": {
+          "origin": "R"
+        }
+      }
+    }
+  ],
+  "output_path": "C:\\Users\\Convidado!\\OneDrive\\Documentos\\ChatGPT\\replicação\\resultados\\oa_validacao\\native_mutator_via_call\\oa_report.json",
+  "max_events": 1000
+}

@@ -1,0 +1,3 @@
+# Scientific artifacts and source snapshots are verified byte for byte.
+# Preserve their recorded line endings on every platform.
+* -text

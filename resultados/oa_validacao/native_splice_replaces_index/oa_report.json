@@ -1,0 +1,67 @@
+{
+  "implementation": "independent-oa-v0.2",
+  "original_author_tool": false,
+  "scope": "ES5 synchronous explicit writes and seven restricted plain-array native index models",
+  "native_array_models": [
+    "push",
+    "pop",
+    "shift",
+    "unshift",
+    "splice",
+    "reverse",
+    "sort_without_comparator_primitive_values"
+  ],
+  "native_array_calls_modeled": 1,
+  "analysis_finished": true,
+  "script_errors": 0,
+  "completeness": "within_declared_subset",
+  "assignments": {
+    "writes": 3,
+    "L": 1,
+    "R": 1,
+    "BASE": 1,
+    "UNKNOWN": 0,
+    "base_resets": 0
+  },
+  "executed_branch_lines": {
+    "L": [
+      "c:\\users\\convidado!\\onedrive\\documentos\\chatgpt\\replicação\\experimentos\\oa_controles\\native_splice_replaces_index\\program.js:2"
+    ],
+    "R": [
+      "c:\\users\\convidado!\\onedrive\\documentos\\chatgpt\\replicação\\experimentos\\oa_controles\\native_splice_replaces_index\\program.js:3"
+    ]
+  },
+  "event_count": 1,
+  "reported_event_count": 1,
+  "events": [
+    {
+      "type": "OVERRIDING_ASSIGNMENT",
+      "targetIdentifier": "object:3:0",
+      "previousAssignment": {
+        "branch": "L",
+        "location": {
+          "file": "C:\\Users\\Convidado!\\OneDrive\\Documentos\\ChatGPT\\replicação\\experimentos\\oa_controles\\native_splice_replaces_index\\program.js",
+          "line": 2,
+          "column": 1,
+          "endLine": 2,
+          "iid": "1:65"
+        },
+        "functionCallStack": []
+      },
+      "currentAssignment": {
+        "branch": "R",
+        "location": {
+          "file": "C:\\Users\\Convidado!\\OneDrive\\Documentos\\ChatGPT\\replicação\\experimentos\\oa_controles\\native_splice_replaces_index\\program.js",
+          "line": 3,
+          "column": 1,
+          "endLine": 3,
+          "iid": "1:113"
+        },
+        "functionCallStack": []
+      },
+      "interpretation": "runtime OA candidate; semantic conflict requires review"
+    }
+  ],
+  "warnings": {},
+  "warning_examples": []
+}

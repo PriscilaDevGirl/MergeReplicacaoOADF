@@ -1,0 +1,10 @@
+{
+  "implementation": "independent-oa-v0.2",
+  "analyzer_sha256": "1536d0bcba14d56c24378d3b13002e749981d8eba6b746cbab9e86a9657f1346",
+  "mapper_sha256": "b2eaedb41285a73a9aaa6e2353a268ba0d3d67c91f0bda3bc35a5f609a3616f6",
+  "node": "v24.14.1",
+  "git": "git version 2.55.0.windows.5",
+  "jalangi2_sha": "bc879287b1678de6e3c423f5debe63207559525b",
+  "synthetic_controls_passed": 44,
+  "original_69_case_suite_executed": false
+}

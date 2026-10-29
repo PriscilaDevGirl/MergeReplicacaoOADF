@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "implementation": "independent-oa-v0.2",
+  "files": [
+    {
+      "runtime_path": "C:\\Users\\Convidado!\\OneDrive\\Documentos\\ChatGPT\\replicação\\experimentos\\oa_controles\\same_name_different_scopes\\program.js",
+      "source_sha256": "5ca56c9a092007bdbf20e07ec83f6a220bb9577acafd68c62661306ceaa48e33",
+      "lines": {
+        "1": {
+          "origin": "BASE"
+        },
+        "2": {
+          "origin": "L"
+        },
+        "3": {
+          "origin": "BASE"
+        },
+        "4": {
+          "origin": "R"
+        },
+        "5": {
+          "origin": "BASE"
+        }
+      }
+    }
+  ],
+  "output_path": "C:\\Users\\Convidado!\\OneDrive\\Documentos\\ChatGPT\\replicação\\resultados\\oa_validacao\\same_name_different_scopes\\oa_report.json",
+  "max_events": 1000
+}

@@ -1,0 +1,4 @@
+EXEMPLO_OK LRLRLRLRLR
+At location (C:\Users\Convidado!\OneDrive\Documentos\ChatGPT\replicação\experimentos\jalangi2\exemplo.js:4:17:4:23) 'true' branch was taken 10 time(s) and 'false' branch was taken 1 time(s).
+At location (C:\Users\Convidado!\OneDrive\Documentos\ChatGPT\replicação\experimentos\jalangi2\exemplo.js:5:19:5:30) 'true' branch was taken 5 time(s) and 'false' branch was taken 5 time(s).
+At location (C:\Users\Convidado!\OneDrive\Documentos\ChatGPT\replicação\experimentos\jalangi2\exemplo.js:7:5:7:31) 'true' branch was taken 0 time(s) and 'false' branch was taken 1 time(s).

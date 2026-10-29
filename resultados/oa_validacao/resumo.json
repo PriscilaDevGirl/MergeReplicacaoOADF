@@ -1,0 +1,346 @@
+{
+  "synthetic_controls": true,
+  "not_original_69_case_suite": true,
+  "tests": 44,
+  "passed": 44,
+  "results": [
+    {
+      "name": "variable_overwrite",
+      "expected_events": 1,
+      "actual_events": 1,
+      "expected_rejection": false,
+      "expected_warning": null,
+      "passed": true
+    },
+    {
+      "name": "same_value_is_write",
+      "expected_events": 1,
+      "actual_events": 1,
+      "expected_rejection": false,
+      "expected_warning": null,
+      "passed": true
+    },
+    {
+      "name": "same_branch",
+      "expected_events": 0,
+      "actual_events": 0,
+      "expected_rejection": false,
+      "expected_warning": null,
+      "passed": true
+    },
+    {
+      "name": "base_reset",
+      "expected_events": 0,
+      "actual_events": 0,
+      "expected_rejection": false,
+      "expected_warning": null,
+      "passed": true
+    },
+    {
+      "name": "different_variables",
+      "expected_events": 0,
+      "actual_events": 0,
+      "expected_rejection": false,
+      "expected_warning": null,
+      "passed": true
+    },
+    {
+      "name": "alias_object",
+      "expected_events": 1,
+      "actual_events": 1,
+      "expected_rejection": false,
+      "expected_warning": null,
+      "passed": true
+    },
+    {
+      "name": "different_objects",
+      "expected_events": 0,
+      "actual_events": 0,
+      "expected_rejection": false,
+      "expected_warning": null,
+      "passed": true
+    },
+    {
+      "name": "different_fields",
+      "expected_events": 0,
+      "actual_events": 0,
+      "expected_rejection": false,
+      "expected_warning": null,
+      "passed": true
+    },
+    {
+      "name": "same_index_coercion",
+      "expected_events": 1,
+      "actual_events": 1,
+      "expected_rejection": false,
+      "expected_warning": null,
+      "passed": true
+    },
+    {
+      "name": "different_indices",
+      "expected_events": 0,
+      "actual_events": 0,
+      "expected_rejection": false,
+      "expected_warning": null,
+      "passed": true
+    },
+    {
+      "name": "reference_not_field",
+      "expected_events": 0,
+      "actual_events": 0,
+      "expected_rejection": false,
+      "expected_warning": null,
+      "passed": true
+    },
+    {
+      "name": "indirect_call",
+      "expected_events": 1,
+      "actual_events": 1,
+      "expected_rejection": false,
+      "expected_warning": null,
+      "passed": true
+    },
+    {
+      "name": "nested_indirect_call",
+      "expected_events": 1,
+      "actual_events": 1,
+      "expected_rejection": false,
+      "expected_warning": null,
+      "passed": true
+    },
+    {
+      "name": "fresh_local_scopes",
+      "expected_events": 0,
+      "actual_events": 0,
+      "expected_rejection": false,
+      "expected_warning": null,
+      "passed": true
+    },
+    {
+      "name": "same_name_different_scopes",
+      "expected_events": 0,
+      "actual_events": 0,
+      "expected_rejection": false,
+      "expected_warning": null,
+      "passed": true
+    },
+    {
+      "name": "closure_shared_binding",
+      "expected_events": 1,
+      "actual_events": 1,
+      "expected_rejection": false,
+      "expected_warning": null,
+      "passed": true
+    },
+    {
+      "name": "closures_different_instances",
+      "expected_events": 0,
+      "actual_events": 0,
+      "expected_rejection": false,
+      "expected_warning": null,
+      "passed": true
+    },
+    {
+      "name": "exception_context_cleanup",
+      "expected_events": 0,
+      "actual_events": 0,
+      "expected_rejection": false,
+      "expected_warning": null,
+      "passed": true
+    },
+    {
+      "name": "alternating_writes",
+      "expected_events": 2,
+      "actual_events": 2,
+      "expected_rejection": false,
+      "expected_warning": null,
+      "passed": true
+    },
+    {
+      "name": "unexecuted_branch",
+      "expected_events": 0,
+      "actual_events": 0,
+      "expected_rejection": false,
+      "expected_warning": null,
+      "passed": true
+    },
+    {
+      "name": "ambiguous_resets",
+      "expected_events": 0,
+      "actual_events": 0,
+      "expected_rejection": false,
+      "expected_warning": "ambiguous_write_origin",
+      "passed": true
+    },
+    {
+      "name": "native_sort_comparator_partial",
+      "expected_events": 0,
+      "actual_events": 0,
+      "expected_rejection": false,
+      "expected_warning": "native_array_mutator_not_modeled",
+      "passed": true
+    },
+    {
+      "name": "native_property_partial",
+      "expected_events": 0,
+      "actual_events": 0,
+      "expected_rejection": false,
+      "expected_warning": "native_property_writer_not_modeled",
+      "passed": true
+    },
+    {
+      "name": "array_truncation_deletes_state",
+      "expected_events": 0,
+      "actual_events": 0,
+      "expected_rejection": false,
+      "expected_warning": null,
+      "passed": true
+    },
+    {
+      "name": "delete_removes_state",
+      "expected_events": 0,
+      "actual_events": 0,
+      "expected_rejection": false,
+      "expected_warning": null,
+      "passed": true
+    },
+    {
+      "name": "native_mutator_via_call",
+      "expected_events": 0,
+      "actual_events": 0,
+      "expected_rejection": false,
+      "expected_warning": null,
+      "passed": true
+    },
+    {
+      "name": "native_push_disjoint_indices",
+      "expected_events": 0,
+      "actual_events": 0,
+      "expected_rejection": false,
+      "expected_warning": null,
+      "passed": true
+    },
+    {
+      "name": "native_push_then_explicit",
+      "expected_events": 1,
+      "actual_events": 1,
+      "expected_rejection": false,
+      "expected_warning": null,
+      "passed": true
+    },
+    {
+      "name": "native_unshift_overwrites_index",
+      "expected_events": 1,
+      "actual_events": 1,
+      "expected_rejection": false,
+      "expected_warning": null,
+      "passed": true
+    },
+    {
+      "name": "native_pop_deletes_state",
+      "expected_events": 0,
+      "actual_events": 0,
+      "expected_rejection": false,
+      "expected_warning": null,
+      "passed": true
+    },
+    {
+      "name": "native_reverse_singleton_no_write",
+      "expected_events": 1,
+      "actual_events": 1,
+      "expected_rejection": false,
+      "expected_warning": null,
+      "passed": true
+    },
+    {
+      "name": "native_shift_writes_index",
+      "expected_events": 1,
+      "actual_events": 1,
+      "expected_rejection": false,
+      "expected_warning": null,
+      "passed": true
+    },
+    {
+      "name": "native_splice_replaces_index",
+      "expected_events": 1,
+      "actual_events": 1,
+      "expected_rejection": false,
+      "expected_warning": null,
+      "passed": true
+    },
+    {
+      "name": "native_splice_noop",
+      "expected_events": 1,
+      "actual_events": 1,
+      "expected_rejection": false,
+      "expected_warning": null,
+      "passed": true
+    },
+    {
+      "name": "native_splice_object_arg_partial",
+      "expected_events": 0,
+      "actual_events": 0,
+      "expected_rejection": false,
+      "expected_warning": "native_array_mutator_not_modeled",
+      "passed": true
+    },
+    {
+      "name": "native_sort_default",
+      "expected_events": 1,
+      "actual_events": 1,
+      "expected_rejection": false,
+      "expected_warning": null,
+      "passed": true
+    },
+    {
+      "name": "native_length_tracking_partial",
+      "expected_events": 0,
+      "actual_events": 0,
+      "expected_rejection": false,
+      "expected_warning": "implicit_native_array_length_not_modeled",
+      "passed": true
+    },
+    {
+      "name": "reject_with",
+      "expected_events": null,
+      "actual_events": null,
+      "expected_rejection": true,
+      "expected_warning": null,
+      "passed": true
+    },
+    {
+      "name": "reject_es6_let",
+      "expected_events": null,
+      "actual_events": null,
+      "expected_rejection": true,
+      "expected_warning": null,
+      "passed": true
+    },
+    {
+      "name": "reject_accessor",
+      "expected_events": null,
+      "actual_events": null,
+      "expected_rejection": true,
+      "expected_warning": null,
+      "passed": true
+    },
+    {
+      "name": "git_map_to_detector",
+      "passed": true,
+      "expected_events": 1,
+      "actual_events": 1
+    },
+    {
+      "name": "git_shared_and_merge_only",
+      "passed": true
+    },
+    {
+      "name": "source_hash_mismatch_rejected",
+      "passed": true
+    },
+    {
+      "name": "git_insertions_change_line_offsets",
+      "passed": true
+    }
+  ]
+}

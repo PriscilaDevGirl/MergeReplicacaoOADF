@@ -1,0 +1,39 @@
+{
+  "implementation": "independent-oa-v0.2",
+  "original_author_tool": false,
+  "scope": "ES5 synchronous explicit writes and seven restricted plain-array native index models",
+  "native_array_models": [
+    "push",
+    "pop",
+    "shift",
+    "unshift",
+    "splice",
+    "reverse",
+    "sort_without_comparator_primitive_values"
+  ],
+  "native_array_calls_modeled": 1,
+  "analysis_finished": true,
+  "script_errors": 0,
+  "completeness": "within_declared_subset",
+  "assignments": {
+    "writes": 5,
+    "L": 1,
+    "R": 1,
+    "BASE": 3,
+    "UNKNOWN": 0,
+    "base_resets": 1
+  },
+  "executed_branch_lines": {
+    "L": [
+      "c:\\users\\convidado!\\onedrive\\documentos\\chatgpt\\replicação\\experimentos\\oa_controles\\native_mutator_via_call\\program.js:2"
+    ],
+    "R": [
+      "c:\\users\\convidado!\\onedrive\\documentos\\chatgpt\\replicação\\experimentos\\oa_controles\\native_mutator_via_call\\program.js:4"
+    ]
+  },
+  "event_count": 0,
+  "reported_event_count": 0,
+  "events": [],
+  "warnings": {},
+  "warning_examples": []
+}

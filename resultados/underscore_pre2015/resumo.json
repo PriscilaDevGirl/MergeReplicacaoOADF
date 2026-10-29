@@ -1,0 +1,33 @@
+{
+  "repository": "https://github.com/jashkenas/underscore.git",
+  "head_sha": "5c1e5f686f8500af9c9d15614ed60289d6d35d6b",
+  "history_scope": "ancestors of frozen HEAD",
+  "shallow": false,
+  "git_version": "git version 2.55.0.windows.5",
+  "executed_at_utc": "2026-10-29T09:55:04.417628+00:00",
+  "extensions": [
+    ".js"
+  ],
+  "until_inclusive_committer_calendar_date": "2014-12-31",
+  "cutoff_note": "Conservative pilot cutoff; not asserted to be Amanda's exact cutoff",
+  "all_merges_reachable_from_head": 829,
+  "excluded_after_cutoff": 320,
+  "merges_in_scope": 509,
+  "merge_status_counts": {
+    "candidate": 146,
+    "no_common_selected_extension": 102,
+    "excluded_ancestor_parent": 260,
+    "excluded_no_unique_base": 1
+  },
+  "candidate_merges": 146,
+  "candidate_files": 184,
+  "files_by_extension": {
+    ".js": 184
+  },
+  "candidate_files_with_four_versions": 181,
+  "exported_samples": 5,
+  "export_policy": "first available in reverse topological log; convenience sample",
+  "original_miningframework_executed": false,
+  "semantic_detector_executed": false,
+  "script_sha256": "4d698827a8e2c829043aba168884eea838b8c71e5280b9b7051ba75ba714d419"
+}

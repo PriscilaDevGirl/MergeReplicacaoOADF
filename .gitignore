@@ -1,0 +1,13 @@
+.runtime/
+repositorios/
+ferramentas/
+tmp/
+__pycache__/
+*_jalangi_.js
+*_jalangi_.json
+experimentos/oa_controles/mapping_git/
+resultados/jsfstmerge/amostras/
+resultados/oa_validacao/native_mutator_partial/
+resultados/oa_validacao/native_sort_partial/
+experimentos/oa_controles/native_mutator_partial/
+experimentos/oa_controles/native_sort_partial/

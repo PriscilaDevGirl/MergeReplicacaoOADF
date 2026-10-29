@@ -1,0 +1,17 @@
+C:\Users\Convidado!\OneDrive\Documentos\ChatGPT\replicação\analisador_oa\preflight.js:12
+            throw new Error('Unsupported dynamic scope/accessor at ' + file.runtime_path + ':' + node.loc.start.line);
+            ^
+
+Error: Unsupported dynamic scope/accessor at C:\Users\Convidado!\OneDrive\Documentos\ChatGPT\replicação\experimentos\oa_controles\reject_with\program.js:1
+    at visit (C:\Users\Convidado!\OneDrive\Documentos\ChatGPT\replicação\analisador_oa\preflight.js:12:19)
+    at Array.forEach (<anonymous>)
+    at C:\Users\Convidado!\OneDrive\Documentos\ChatGPT\replicação\analisador_oa\preflight.js:19:53
+    at Array.forEach (<anonymous>)
+    at visit (C:\Users\Convidado!\OneDrive\Documentos\ChatGPT\replicação\analisador_oa\preflight.js:17:27)
+    at C:\Users\Convidado!\OneDrive\Documentos\ChatGPT\replicação\analisador_oa\preflight.js:23:5
+    at Array.forEach (<anonymous>)
+    at Object.<anonymous> (C:\Users\Convidado!\OneDrive\Documentos\ChatGPT\replicação\analisador_oa\preflight.js:7:14)
+    at Module._compile (node:internal/modules/cjs/loader:1812:14)
+    at Object..js (node:internal/modules/cjs/loader:1943:10)
+
+Node.js v24.14.1

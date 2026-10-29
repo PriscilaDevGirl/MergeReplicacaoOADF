@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "implementation": "independent-oa-v0.2",
+  "files": [
+    {
+      "runtime_path": "C:\\Users\\Convidado!\\OneDrive\\Documentos\\ChatGPT\\replicação\\experimentos\\oa_controles\\native_reverse_singleton_no_write\\program.js",
+      "source_sha256": "656a52756aae14be21b7db351e2ac52f4d8f5e27cea1b387cb80a842338823eb",
+      "lines": {
+        "1": {
+          "origin": "BASE"
+        },
+        "2": {
+          "origin": "L"
+        },
+        "3": {
+          "origin": "BASE"
+        },
+        "4": {
+          "origin": "R"
+        }
+      }
+    }
+  ],
+  "output_path": "C:\\Users\\Convidado!\\OneDrive\\Documentos\\ChatGPT\\replicação\\resultados\\oa_validacao\\native_reverse_singleton_no_write\\oa_report.json",
+  "max_events": 1000
+}

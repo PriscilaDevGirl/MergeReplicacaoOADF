@@ -1,0 +1,54 @@
+    1 BASE       $(document).ready(function() {
+    2 BASE       
+    3 BASE         module("Utility functions (uniqueId, template)");
+    4 BASE       
+    5 BASE         test("utility: noConflict", function() {
+    6 BASE           var underscore = _.noConflict();
+    7 BASE           ok(underscore.isUndefined(_), "The '_' variable has been returned to its previous state.");
+    8 BASE           var intersection = underscore.intersect([-1, 0, 1, 2], [1, 2, 3, 4]);
+    9 BASE           equals(intersection.join(', '), '1, 2', 'but the intersection function still works');
+   10 BASE           window._ = underscore;
+   11 BASE         });
+   12 BASE       
+   13 BASE         test("utility: identity", function() {
+   14 BASE           var moe = {name : 'moe'};
+   15 BASE           equals(_.identity(moe), moe, 'moe is the same as his identity');
+   16 BASE         });
+   17 BASE       
+   18 BASE         test('utility: breakLoop', function() {
+   19 BASE           var result = null;
+   20 BASE           _([1,2,3,4,5,6]).each(function(num) {
+   21 BASE             result = num;
+   22 BASE             if (num == 3) _.breakLoop();
+   23 BASE           });
+   24 BASE           equals(result, 3, 'broke out of a loop');
+   25 BASE         });
+   26 BASE       
+   27 BASE         test("utility: uniqueId", function() {
+   28 BASE           var ids = [], i = 0;
+   29 BASE           while(i++ < 100) ids.push(_.uniqueId());
+   30 BASE           equals(_.uniq(ids).length, ids.length, 'can generate a globally-unique stream of ids');
+   31 BASE         });
+   32 BASE       
+   33 BASE         test("utility: functions", function() {
+   34 R              var expected = ["all", "any", "bind", "bindAll", "breakLoop", "clone", "compact", 
+   35 R              "compose","defer", "delay", "detect", "each", "every", "extend", "filter", "first",
+   36 R              "flatten", "foldl", "foldr", "forEach", "functions", "head", "identity", "include",
+   37 R              "indexOf", "init", "inject", "intersect", "invoke", "isArray", "isElement", "isEmpty", "isEqual",
+   38 BASE           "isFunction", "isNumber", "isString", "isUndefined", "keys", "last", "lastIndexOf", "map", "max",
+   39 R              "methods", "min", "pluck", "reduce", "reduceRight", "reject", "reverse", "select",
+   40 R              "size", "some", "sortBy", "sortedIndex", "tail", "template", "toArray", "uniq",
+   41 BASE           "uniqueId", "values", "without", "wrap", "zip"];
+   42 BASE           ok(_(expected).isEqual(_.methods()), 'provides a sorted list of functions');
+   43 BASE         });
+   44 BASE       
+   45 BASE         test("utility: template", function() {
+   46 BASE           var basicTemplate = _.template("<%= thing %> is gettin' on my noives!");
+   47 BASE           var result = basicTemplate({thing : 'This'});
+   48 BASE           equals(result, "This is gettin' on my noives!", 'can do basic attribute interpolation');
+   49 L              var fancyTemplate = _.template("<ul><% for (key in people) { %><li><%= people[key] %></li><% } %></ul>");
+   50 BASE           result = fancyTemplate({people : {moe : "Moe", larry : "Larry", curly : "Curly"}});
+   51 L              equals(result, "<ul><li>Moe</li><li>Larry</li><li>Curly</li></ul>", 'can run arbitrary javascript in templates');
+   52 BASE         });
+   53 BASE       
+   54 BASE       });

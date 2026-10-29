@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "implementation": "independent-oa-v0.2",
+  "files": [
+    {
+      "runtime_path": "C:\\Users\\Convidado!\\OneDrive\\Documentos\\ChatGPT\\replicação\\experimentos\\oa_controles\\reject_es6_let\\program.js",
+      "source_sha256": "fc43e700d539ed42b8ba9eb38712826159a42e8ca109f19a4a96512e69dacad5",
+      "lines": {
+        "1": {
+          "origin": "BASE"
+        }
+      }
+    }
+  ],
+  "output_path": "C:\\Users\\Convidado!\\OneDrive\\Documentos\\ChatGPT\\replicação\\resultados\\oa_validacao\\reject_es6_let\\oa_report.json",
+  "max_events": 1000
+}

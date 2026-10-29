@@ -1,0 +1,17 @@
+C:\Users\Convidado!\OneDrive\Documentos\ChatGPT\replicação\analisador_oa\analysis.js:16
+        if (hash !== file.source_sha256) throw new Error('OA source hash mismatch: ' + file.runtime_path);
+                                         ^
+
+Error: OA source hash mismatch: C:\Users\Convidado!\OneDrive\Documentos\ChatGPT\replicação\experimentos\oa_controles\mapping_git\case.js
+    at C:\Users\Convidado!\OneDrive\Documentos\ChatGPT\replicação\analisador_oa\analysis.js:16:48
+    at Array.forEach (<anonymous>)
+    at C:\Users\Convidado!\OneDrive\Documentos\ChatGPT\replicação\analisador_oa\analysis.js:14:18
+    at Object.<anonymous> (C:\Users\Convidado!\OneDrive\Documentos\ChatGPT\replicação\analisador_oa\analysis.js:319:2)
+    at Module._compile (node:internal/modules/cjs/loader:1812:14)
+    at Object..js (node:internal/modules/cjs/loader:1943:10)
+    at Module.load (node:internal/modules/cjs/loader:1533:32)
+    at Module._load (node:internal/modules/cjs/loader:1335:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.require (node:internal/modules/cjs/loader:1556:12)
+
+Node.js v24.14.1

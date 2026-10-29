@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "implementation": "independent-oa-v0.2",
+  "files": [
+    {
+      "runtime_path": "C:\\Users\\Convidado!\\OneDrive\\Documentos\\ChatGPT\\replicação\\experimentos\\oa_controles\\delete_removes_state\\program.js",
+      "source_sha256": "371266a7e70f8d623d4a00965114a30ad12271ad19c050d79ecb4740e19bad19",
+      "lines": {
+        "1": {
+          "origin": "BASE"
+        },
+        "2": {
+          "origin": "L"
+        },
+        "3": {
+          "origin": "BASE"
+        },
+        "4": {
+          "origin": "R"
+        }
+      }
+    }
+  ],
+  "output_path": "C:\\Users\\Convidado!\\OneDrive\\Documentos\\ChatGPT\\replicação\\resultados\\oa_validacao\\delete_removes_state\\oa_report.json",
+  "max_events": 1000
+}

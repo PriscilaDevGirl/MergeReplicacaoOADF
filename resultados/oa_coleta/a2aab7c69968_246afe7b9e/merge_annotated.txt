@@ -1,0 +1,721 @@
+    1 BASE       // Underscore.js
+    2 BASE       // (c) 2010 Jeremy Ashkenas, DocumentCloud Inc.
+    3 BASE       // Underscore is freely distributable under the terms of the MIT license.
+    4 BASE       // Portions of Underscore are inspired by or borrowed from Prototype.js,
+    5 BASE       // Oliver Steele's Functional, and John Resig's Micro-Templating.
+    6 BASE       // For all details and documentation:
+    7 BASE       // http://documentcloud.github.com/underscore
+    8 BASE       
+    9 BASE       (function() {
+   10 BASE       
+   11 BASE         // ------------------------- Baseline setup ---------------------------------
+   12 BASE       
+   13 BASE         // Establish the root object, "window" in the browser, or "global" on the server.
+   14 BASE         var root = this;
+   15 BASE       
+   16 BASE         // Save the previous value of the "_" variable.
+   17 BASE         var previousUnderscore = root._;
+   18 BASE       
+   19 BASE         // If Underscore is called as a function, it returns a wrapped object that
+   20 BASE         // can be used OO-style. This wrapper holds altered versions of all the
+   21 BASE         // underscore functions. Wrapped objects may be chained.
+   22 BASE         var wrapper = function(obj) { this._wrapped = obj; };
+   23 BASE       
+   24 BASE         // Establish the object that gets thrown to break out of a loop iteration.
+   25 BASE         var breaker = typeof StopIteration !== 'undefined' ? StopIteration : '__break__';
+   26 BASE       
+   27 BASE         // Create a safe reference to the Underscore object for reference below.
+   28 BASE         var _ = root._ = function(obj) { return new wrapper(obj); };
+   29 BASE       
+   30 BASE         // Export the Underscore object for CommonJS.
+   31 BASE         if (typeof exports !== 'undefined') exports._ = _;
+   32 BASE       
+   33 L            // Quick regexp-escaping function, because JS doesn't have RegExp.escape().
+   34 L            var escapeRegExp = function(s) { return s.replace(/([.*+?^${}()|[\]\/\\])/g, '\\$1'); };
+   35 L          
+   36 R            // Save bytes in the minified (but not gzipped) version:
+   37 R            var ArrayPrototype = Array.prototype;
+   38 R            
+   39 BASE         // Create quick reference variables for speed access to core prototypes.
+   40 R            var slice                 = ArrayPrototype.slice,
+   41 R                unshift               = ArrayPrototype.unshift,
+   42 BASE             toString              = Object.prototype.toString,
+   43 BASE             hasOwnProperty        = Object.prototype.hasOwnProperty,
+   44 BASE             propertyIsEnumerable  = Object.prototype.propertyIsEnumerable;
+   45 BASE       
+   46 R            // All native implementations we hope to use are declared here.
+   47 R            // 'native' is on the long list of reserved words.  
+   48 R            // Ok to use as a property name, though jsLint doesn't agree.
+   49 R            var Native = _['native'] = {
+   50 R              forEach:        ArrayPrototype.forEach,
+   51 R              map:            ArrayPrototype.map,
+   52 R              reduce:         ArrayPrototype.reduce,
+   53 R              reduceRight:    ArrayPrototype.reduceRight,
+   54 R              filter:         ArrayPrototype.filter,
+   55 R              every:          ArrayPrototype.every,
+   56 R              some:           ArrayPrototype.some,
+   57 R              indexOf:        ArrayPrototype.indexOf,
+   58 R              lastIndexOf:    ArrayPrototype.lastIndexOf,
+   59 R              isArray:        Array.isArray,
+   60 R              keys:           Object.keys
+   61 R            };
+   62 R            
+   63 BASE         // Current version.
+   64 BASE         _.VERSION = '0.5.8';
+   65 BASE       
+   66 BASE         // ------------------------ Collection Functions: ---------------------------
+   67 BASE       
+   68 BASE         // The cornerstone, an each implementation.
+   69 BASE         // Handles objects implementing forEach, arrays, and raw objects.
+   70 R            // Delegates to JavaScript 1.6's native forEach if available.
+   71 R            var each = 
+   72 R            _.forEach = function(obj, iterator, context) {
+   73 BASE           var index = 0;
+   74 BASE           try {
+   75 R                if (obj.forEach === Native.forEach) {
+   76 BASE               obj.forEach(iterator, context);
+   77 BASE             } else if (_.isNumber(obj.length)) {
+   78 BASE               for (var i=0, l=obj.length; i<l; i++) iterator.call(context, obj[i], i, obj);
+   79 BASE             } else {
+   80 BASE               var keys = _.keys(obj), l = keys.length;
+   81 BASE               for (var i=0; i<l; i++) iterator.call(context, obj[keys[i]], keys[i], obj);
+   82 BASE             }
+   83 BASE           } catch(e) {
+   84 BASE             if (e != breaker) throw e;
+   85 BASE           }
+   86 BASE           return obj;
+   87 BASE         };
+   88 BASE       
+   89 R            // Return the results of applying the iterator to each element. 
+   90 R            // Delegates to JavaScript 1.6's native map if available.
+   91 BASE         _.map = function(obj, iterator, context) {
+   92 R              if (obj.map === Native.map) return obj.map(iterator, context);
+   93 BASE           var results = [];
+   94 R              each(obj, function(value, index, list) {
+   95 BASE             results.push(iterator.call(context, value, index, list));
+   96 BASE           });
+   97 BASE           return results;
+   98 BASE         };
+   99 BASE       
+  100 BASE         // Reduce builds up a single result from a list of values. Also known as
+  101 R            // inject, or foldl.
+  102 R            // Delegates to JavaScript 1.8's native reduce if available.
+  103 BASE         _.reduce = function(obj, memo, iterator, context) {
+  104 R              if (obj.reduce === Native.reduce) return obj.reduce(_.bind(iterator, context), memo);
+  105 R              each(obj, function(value, index, list) {
+  106 BASE             memo = iterator.call(context, memo, value, index, list);
+  107 BASE           });
+  108 BASE           return memo;
+  109 BASE         };
+  110 BASE       
+  111 BASE         // The right-associative version of reduce, also known as foldr. Uses
+  112 R            // Delegates to JavaScript 1.8's native reduceRight if available.
+  113 BASE         _.reduceRight = function(obj, memo, iterator, context) {
+  114 R              if (obj.reduceRight === Native.reduceRight) return obj.reduceRight(_.bind(iterator, context), memo);
+  115 BASE           var reversed = _.clone(_.toArray(obj)).reverse();
+  116 R              return reduce(reversed, memo, iterator, context);
+  117 BASE         };
+  118 BASE       
+  119 BASE         // Return the first value which passes a truth test.
+  120 BASE         _.detect = function(obj, iterator, context) {
+  121 BASE           var result;
+  122 R              each(obj, function(value, index, list) {
+  123 BASE             if (iterator.call(context, value, index, list)) {
+  124 BASE               result = value;
+  125 BASE               _.breakLoop();
+  126 BASE             }
+  127 BASE           });
+  128 BASE           return result;
+  129 BASE         };
+  130 BASE       
+  131 R            // Return all the elements that pass a truth test. 
+  132 R            // Delegates to JavaScript 1.6's native filter if available.
+  133 R            _.filter = function(obj, iterator, context) {
+  134 R              if (obj.filter === Native.filter) return obj.filter(iterator, context);
+  135 BASE           var results = [];
+  136 R              each(obj, function(value, index, list) {
+  137 BASE             iterator.call(context, value, index, list) && results.push(value);
+  138 BASE           });
+  139 BASE           return results;
+  140 BASE         };
+  141 BASE       
+  142 BASE         // Return all the elements for which a truth test fails.
+  143 BASE         _.reject = function(obj, iterator, context) {
+  144 BASE           var results = [];
+  145 R              each(obj, function(value, index, list) {
+  146 BASE             !iterator.call(context, value, index, list) && results.push(value);
+  147 BASE           });
+  148 BASE           return results;
+  149 BASE         };
+  150 BASE       
+  151 R            // Determine whether all of the elements match a truth test. 
+  152 R            // Delegates to JavaScript 1.6's native every if available.
+  153 R            _.every = function(obj, iterator, context) {
+  154 BASE           iterator = iterator || _.identity;
+  155 R              if (obj.every === Native.every) return obj.every(iterator, context);
+  156 BASE           var result = true;
+  157 R              each(obj, function(value, index, list) {
+  158 BASE             if (!(result = result && iterator.call(context, value, index, list))) _.breakLoop();
+  159 BASE           });
+  160 BASE           return result;
+  161 BASE         };
+  162 BASE       
+  163 R            // Determine if at least one element in the object matches a truth test.
+  164 R            // Delegates to JavaScript 1.6's native some if available.
+  165 R            _.some = function(obj, iterator, context) {
+  166 BASE           iterator = iterator || _.identity;
+  167 R              if (obj.some === Native.some) return obj.some(iterator, context);
+  168 BASE           var result = false;
+  169 R              each(obj, function(value, index, list) {
+  170 BASE             if (result = iterator.call(context, value, index, list)) _.breakLoop();
+  171 BASE           });
+  172 BASE           return result;
+  173 BASE         };
+  174 BASE       
+  175 R            // Determine if a given value is included in the array or object using '==='.
+  176 BASE         _.include = function(obj, target) {
+  177 BASE           if (obj && _.isFunction(obj.indexOf)) return _.indexOf(obj, target) != -1;
+  178 R              return !! _.detect(obj, function(value) {
+  179 R                return value === target;
+  180 BASE           });
+  181 BASE         };
+  182 BASE       
+  183 BASE         // Invoke a method with arguments on every item in a collection.
+  184 BASE         _.invoke = function(obj, method) {
+  185 BASE           var args = _.rest(arguments, 2);
+  186 BASE           return _.map(obj, function(value) {
+  187 BASE             return (method ? value[method] : value).apply(value, args);
+  188 BASE           });
+  189 BASE         };
+  190 BASE       
+  191 BASE         // Convenience version of a common use case of map: fetching a property.
+  192 BASE         _.pluck = function(obj, key) {
+  193 BASE           return _.map(obj, function(value){ return value[key]; });
+  194 BASE         };
+  195 BASE       
+  196 BASE         // Return the maximum item or (item-based computation).
+  197 BASE         _.max = function(obj, iterator, context) {
+  198 BASE           if (!iterator && _.isArray(obj)) return Math.max.apply(Math, obj);
+  199 BASE           var result = {computed : -Infinity};
+  200 R              each(obj, function(value, index, list) {
+  201 BASE             var computed = iterator ? iterator.call(context, value, index, list) : value;
+  202 BASE             computed >= result.computed && (result = {value : value, computed : computed});
+  203 BASE           });
+  204 BASE           return result.value;
+  205 BASE         };
+  206 BASE       
+  207 BASE         // Return the minimum element (or element-based computation).
+  208 BASE         _.min = function(obj, iterator, context) {
+  209 BASE           if (!iterator && _.isArray(obj)) return Math.min.apply(Math, obj);
+  210 BASE           var result = {computed : Infinity};
+  211 R              each(obj, function(value, index, list) {
+  212 BASE             var computed = iterator ? iterator.call(context, value, index, list) : value;
+  213 BASE             computed < result.computed && (result = {value : value, computed : computed});
+  214 BASE           });
+  215 BASE           return result.value;
+  216 BASE         };
+  217 BASE       
+  218 BASE         // Sort the object's values by a criteria produced by an iterator.
+  219 BASE         _.sortBy = function(obj, iterator, context) {
+  220 BASE           return _.pluck(_.map(obj, function(value, index, list) {
+  221 BASE             return {
+  222 BASE               value : value,
+  223 BASE               criteria : iterator.call(context, value, index, list)
+  224 BASE             };
+  225 BASE           }).sort(function(left, right) {
+  226 BASE             var a = left.criteria, b = right.criteria;
+  227 BASE             return a < b ? -1 : a > b ? 1 : 0;
+  228 BASE           }), 'value');
+  229 BASE         };
+  230 BASE       
+  231 BASE         // Use a comparator function to figure out at what index an object should
+  232 BASE         // be inserted so as to maintain order. Uses binary search.
+  233 BASE         _.sortedIndex = function(array, obj, iterator) {
+  234 BASE           iterator = iterator || _.identity;
+  235 BASE           var low = 0, high = array.length;
+  236 BASE           while (low < high) {
+  237 BASE             var mid = (low + high) >> 1;
+  238 BASE             iterator(array[mid]) < iterator(obj) ? low = mid + 1 : high = mid;
+  239 BASE           }
+  240 BASE           return low;
+  241 BASE         };
+  242 BASE       
+  243 BASE         // Convert anything iterable into a real, live array.
+  244 BASE         _.toArray = function(iterable) {
+  245 BASE           if (!iterable)                return [];
+  246 BASE           if (iterable.toArray)         return iterable.toArray();
+  247 BASE           if (_.isArray(iterable))      return iterable;
+  248 BASE           if (_.isArguments(iterable))  return slice.call(iterable);
+  249 BASE           return _.values(iterable);
+  250 BASE         };
+  251 BASE       
+  252 BASE         // Return the number of elements in an object.
+  253 BASE         _.size = function(obj) {
+  254 BASE           return _.toArray(obj).length;
+  255 BASE         };
+  256 R            
+  257 R            // Build a lookup map from a collection.
+  258 R            // Pay a little memory upfront to make searching a collection for a 
+  259 R            // value faster later
+  260 R            // e.g:
+  261 R            //
+  262 R            //  var lookup = _.buildLookup([1,2,8])  // {1: true, 2: true, 8: true}
+  263 R            //  lookup[key]   // instead of: _.include(array, key)
+  264 R            //
+  265 R            // See example usage in #without
+  266 R            // By default sets the value to true, can pass in a value to use instead
+  267 R            _.buildLookup = function (obj, useValue) {
+  268 R              useValue = (useValue === undefined)?  true :  useValue;
+  269 R              return _.reduce(obj, {}, function (memo, value) {  
+  270 R                memo[value] = useValue;  
+  271 R                return memo;
+  272 R              });
+  273 R            };   
+  274 BASE       
+  275 BASE         // -------------------------- Array Functions: ------------------------------
+  276 BASE       
+  277 BASE         // Get the first element of an array. Passing "n" will return the first N
+  278 BASE         // values in the array. Aliased as "head". The "guard" check allows it to work
+  279 BASE         // with _.map.
+  280 BASE         _.first = function(array, n, guard) {
+  281 BASE           return n && !guard ? slice.call(array, 0, n) : array[0];
+  282 BASE         };
+  283 BASE       
+  284 BASE         // Returns everything but the first entry of the array. Aliased as "tail".
+  285 BASE         // Especially useful on the arguments object. Passing an "index" will return
+  286 BASE         // the rest of the values in the array from that index onward. The "guard"
+  287 BASE          //check allows it to work with _.map.
+  288 BASE         _.rest = function(array, index, guard) {
+  289 BASE           return slice.call(array, _.isUndefined(index) || guard ? 1 : index);
+  290 BASE         };
+  291 BASE       
+  292 BASE         // Get the last element of an array.
+  293 BASE         _.last = function(array) {
+  294 BASE           return array[array.length - 1];
+  295 BASE         };
+  296 BASE       
+  297 BASE         // Trim out all falsy values from an array.
+  298 BASE         _.compact = function(array) {
+  299 BASE           return _.select(array, function(value){ return !!value; });
+  300 BASE         };
+  301 BASE       
+  302 BASE         // Return a completely flattened version of an array.
+  303 BASE         _.flatten = function(array) {
+  304 BASE           return _.reduce(array, [], function(memo, value) {
+  305 BASE             if (_.isArray(value)) return memo.concat(_.flatten(value));
+  306 BASE             memo.push(value);
+  307 BASE             return memo;
+  308 BASE           });
+  309 BASE         };
+  310 BASE       
+  311 BASE         // Return a version of the array that does not contain the specified value(s).
+  312 BASE         _.without = function(array) {
+  313 R              var lookup = _.buildLookup(_.rest(arguments));
+  314 R              return _.filter(array, function(value){ return !lookup[value]; });
+  315 BASE         };
+  316 BASE       
+  317 BASE         // Produce a duplicate-free version of the array. If the array has already
+  318 BASE         // been sorted, you have the option of using a faster algorithm.
+  319 BASE         _.uniq = function(array, isSorted) {
+  320 BASE           return _.reduce(array, [], function(memo, el, i) {
+  321 BASE             if (0 == i || (isSorted === true ? _.last(memo) != el : !_.include(memo, el))) memo.push(el);
+  322 BASE             return memo;
+  323 BASE           });
+  324 BASE         };
+  325 BASE       
+  326 BASE         // Produce an array that contains every item shared between all the
+  327 BASE         // passed-in arrays.
+  328 BASE         _.intersect = function(array) {
+  329 BASE           var rest = _.rest(arguments);
+  330 BASE           return _.select(_.uniq(array), function(item) {
+  331 BASE             return _.all(rest, function(other) {
+  332 BASE               return _.indexOf(other, item) >= 0;
+  333 BASE             });
+  334 BASE           });
+  335 BASE         };
+  336 BASE       
+  337 BASE         // Zip together multiple lists into a single array -- elements that share
+  338 BASE         // an index go together.
+  339 BASE         _.zip = function() {
+  340 BASE           var args = _.toArray(arguments);
+  341 BASE           var length = _.max(_.pluck(args, 'length'));
+  342 BASE           var results = new Array(length);
+  343 BASE           for (var i=0; i<length; i++) results[i] = _.pluck(args, String(i));
+  344 BASE           return results;
+  345 BASE         };
+  346 BASE       
+  347 BASE         // If the browser doesn't supply us with indexOf (I'm looking at you, MSIE),
+  348 BASE         // we need this function. Return the position of the first occurence of an
+  349 BASE         // item in an array, or -1 if the item is not included in the array.
+  350 R            // Delegates to JavaScript 1.8's native indexOf if available.
+  351 BASE         _.indexOf = function(array, item) {
+  352 R              if (array.indexOf === Native.indexOf) return array.indexOf(item);
+  353 BASE           for (var i=0, l=array.length; i<l; i++) if (array[i] === item) return i;
+  354 BASE           return -1;
+  355 BASE         };
+  356 BASE       
+  357 R          
+  358 R            // Delegates to JavaScript 1.6's native lastIndexOf if available.
+  359 BASE         _.lastIndexOf = function(array, item) {
+  360 R              if (array.lastIndexOf === Native.lastIndexOf) return array.lastIndexOf(item);
+  361 BASE           var i = array.length;
+  362 BASE           while (i--) if (array[i] === item) return i;
+  363 BASE           return -1;
+  364 BASE         };
+  365 BASE       
+  366 BASE         // Generate an integer Array containing an arithmetic progression. A port of
+  367 BASE         // the native Python range() function. See:
+  368 BASE         // http://docs.python.org/library/functions.html#range
+  369 BASE         _.range = function(start, stop, step) {
+  370 BASE           var a     = _.toArray(arguments);
+  371 BASE           var solo  = a.length <= 1;
+  372 BASE           var start = solo ? 0 : a[0], stop = solo ? a[0] : a[1], step = a[2] || 1;
+  373 BASE           var len   = Math.ceil((stop - start) / step);
+  374 BASE           if (len <= 0) return [];
+  375 BASE           var range = new Array(len);
+  376 BASE           for (var i = start, idx = 0; true; i += step) {
+  377 BASE             if ((step > 0 ? i - stop : stop - i) >= 0) return range;
+  378 BASE             range[idx++] = i;
+  379 BASE           }
+  380 BASE         };
+  381 BASE       
+  382 BASE         // ----------------------- Function Functions: ------------------------------
+  383 BASE       
+  384 BASE         // Create a function bound to a given object (assigning 'this', and arguments,
+  385 BASE         // optionally). Binding with arguments is also known as 'curry'.
+  386 BASE         _.bind = function(func, obj) {
+  387 BASE           var args = _.rest(arguments, 2);
+  388 BASE           return function() {
+  389 BASE             return func.apply(obj || root, args.concat(_.toArray(arguments)));
+  390 BASE           };
+  391 BASE         };
+  392 BASE       
+  393 BASE         // Bind all of an object's methods to that object. Useful for ensuring that
+  394 BASE         // all callbacks defined on an object belong to it.
+  395 BASE         _.bindAll = function(obj) {
+  396 BASE           var funcs = _.rest(arguments);
+  397 BASE           if (funcs.length == 0) funcs = _.functions(obj);
+  398 R              each(funcs, function(f) { obj[f] = _.bind(obj[f], obj); });
+  399 BASE           return obj;
+  400 BASE         };
+  401 BASE       
+  402 BASE         // Delays a function for the given number of milliseconds, and then calls
+  403 BASE         // it with the arguments supplied.
+  404 BASE         _.delay = function(func, wait) {
+  405 BASE           var args = _.rest(arguments, 2);
+  406 BASE           return setTimeout(function(){ return func.apply(func, args); }, wait);
+  407 BASE         };
+  408 BASE       
+  409 BASE         // Defers a function, scheduling it to run after the current call stack has
+  410 BASE         // cleared.
+  411 BASE         _.defer = function(func) {
+  412 BASE           return _.delay.apply(_, [func, 1].concat(_.rest(arguments)));
+  413 BASE         };
+  414 BASE       
+  415 BASE         // Returns the first function passed as an argument to the second,
+  416 BASE         // allowing you to adjust arguments, run code before and after, and
+  417 BASE         // conditionally execute the original function.
+  418 BASE         _.wrap = function(func, wrapper) {
+  419 BASE           return function() {
+  420 BASE             var args = [func].concat(_.toArray(arguments));
+  421 BASE             return wrapper.apply(wrapper, args);
+  422 BASE           };
+  423 BASE         };
+  424 BASE       
+  425 BASE         // Returns a function that is the composition of a list of functions, each
+  426 BASE         // consuming the return value of the function that follows.
+  427 BASE         _.compose = function() {
+  428 BASE           var funcs = _.toArray(arguments);
+  429 BASE           return function() {
+  430 BASE             var args = _.toArray(arguments);
+  431 BASE             for (var i=funcs.length-1; i >= 0; i--) {
+  432 BASE               args = [funcs[i].apply(this, args)];
+  433 BASE             }
+  434 BASE             return args[0];
+  435 BASE           };
+  436 BASE         };
+  437 BASE       
+  438 BASE         // ------------------------- Object Functions: ------------------------------
+  439 BASE       
+  440 BASE         // Retrieve the names of an object's properties.
+  441 R            // Delegates to ECMA5's native Object.keys
+  442 R            _.keys = Native.keys || function(obj) {
+  443 BASE           if (_.isArray(obj)) return _.range(0, obj.length);
+  444 BASE           var keys = [];
+  445 BASE           for (var key in obj) if (hasOwnProperty.call(obj, key)) keys.push(key);
+  446 BASE           return keys;
+  447 BASE         };
+  448 BASE       
+  449 BASE         // Retrieve the values of an object's properties.
+  450 BASE         _.values = function(obj) {
+  451 BASE           return _.map(obj, _.identity);
+  452 BASE         };
+  453 BASE       
+  454 BASE         // Return a sorted list of the function names available in Underscore.
+  455 BASE         _.functions = function(obj) {
+  456 BASE           return _.select(_.keys(obj), function(key){ return _.isFunction(obj[key]); }).sort();
+  457 BASE         };
+  458 BASE       
+  459 BASE         // Extend a given object with all of the properties in a source object.
+  460 BASE         _.extend = function(destination, source) {
+  461 BASE           for (var property in source) destination[property] = source[property];
+  462 BASE           return destination;
+  463 BASE         };
+  464 BASE       
+  465 BASE         // Create a (shallow-cloned) duplicate of an object.
+  466 BASE         _.clone = function(obj) {
+  467 BASE           if (_.isArray(obj)) return obj.slice(0);
+  468 BASE           return _.extend({}, obj);
+  469 BASE         };
+  470 BASE       
+  471 BASE         // Invokes interceptor with the obj, and then returns obj.
+  472 BASE         // The primary purpose of this method is to "tap into" a method chain, in order to perform operations on intermediate results within the chain.
+  473 BASE         _.tap = function(obj, interceptor) {
+  474 BASE           interceptor(obj);
+  475 BASE           return obj;
+  476 BASE         };
+  477 BASE       
+  478 R            // Alias a method on an object to another name(s).
+  479 R            // If the first argument is NOT an object, then the object is assumed to 
+  480 R            // be underscore.
+  481 R            // The first string argument is the existing method name, any following
+  482 R            // strings will be aliased to that name.  
+  483 R            // Returns the object for chainability.
+  484 R            //
+  485 R            // Examples:
+  486 R            //
+  487 R            // Alias isEquals to isSame and eql on underscore:
+  488 R            //    _.alias('isEqual', 'isSame', 'eql');
+  489 R            //
+  490 R            // Alias `toString` to `to_s` on a given object: 
+  491 R            //    _.alias({}, 'toString', 'to_s')
+  492 R            //
+  493 R            // Implementation: explicitly cast arguments to array as calling mutating
+  494 R            // array methods on arguments object has strange behavior (at least in FF 3.6) 
+  495 R            _.alias = function () {
+  496 R              var args = _.toArray(arguments), 
+  497 R                  obj = (typeof args[0] === 'string')?  _ : args.shift(),
+  498 R                  fn = obj[args.shift()];
+  499 R              each(args, function (alias) {  obj[alias] = fn;  });
+  500 R              return obj;
+  501 R            };
+  502 R          
+  503 BASE         // Perform a deep comparison to check if two objects are equal.
+  504 BASE         _.isEqual = function(a, b) {
+  505 BASE           // Check object identity.
+  506 BASE           if (a === b) return true;
+  507 BASE           // Different types?
+  508 BASE           var atype = typeof(a), btype = typeof(b);
+  509 BASE           if (atype != btype) return false;
+  510 BASE           // Basic equality test (watch out for coercions).
+  511 BASE           if (a == b) return true;
+  512 BASE           // One is falsy and the other truthy.
+  513 BASE           if ((!a && b) || (a && !b)) return false;
+  514 BASE           // One of them implements an isEqual()?
+  515 BASE           if (a.isEqual) return a.isEqual(b);
+  516 BASE           // Check dates' integer values.
+  517 BASE           if (_.isDate(a) && _.isDate(b)) return a.getTime() === b.getTime();
+  518 BASE           // Both are NaN?
+  519 BASE           if (_.isNaN(a) && _.isNaN(b)) return true;
+  520 BASE           // Compare regular expressions.
+  521 BASE           if (_.isRegExp(a) && _.isRegExp(b))
+  522 BASE             return a.source     === b.source &&
+  523 BASE                    a.global     === b.global &&
+  524 BASE                    a.ignoreCase === b.ignoreCase &&
+  525 BASE                    a.multiline  === b.multiline;
+  526 BASE           // If a is not an object by this point, we can't handle it.
+  527 BASE           if (atype !== 'object') return false;
+  528 BASE           // Check for different array lengths before comparing contents.
+  529 BASE           if (a.length && (a.length !== b.length)) return false;
+  530 BASE           // Nothing else worked, deep compare the contents.
+  531 BASE           var aKeys = _.keys(a), bKeys = _.keys(b);
+  532 BASE           // Different object sizes?
+  533 BASE           if (aKeys.length != bKeys.length) return false;
+  534 BASE           // Recursive comparison of contents.
+  535 BASE           for (var key in a) if (!_.isEqual(a[key], b[key])) return false;
+  536 BASE           return true;
+  537 BASE         };
+  538 BASE       
+  539 BASE         // Is a given array or object empty?
+  540 BASE         _.isEmpty = function(obj) {
+  541 R              if (_.isArray(obj)) return obj.length === 0;
+  542 R              for (var k in obj) return false;
+  543 R              return true;
+  544 BASE         };
+  545 BASE       
+  546 BASE         // Is a given value a DOM element?
+  547 BASE         _.isElement = function(obj) {
+  548 BASE           return !!(obj && obj.nodeType == 1);
+  549 BASE         };
+  550 BASE       
+  551 BASE         // Is a given value an array?
+  552 R            // Delegates to ECMA5's native Array.isArray
+  553 R            _.isArray = Native.isArray || function(obj) {
+  554 BASE           return !!(obj && obj.concat && obj.unshift);
+  555 BASE         };
+  556 BASE       
+  557 BASE         // Is a given variable an arguments object?
+  558 BASE         _.isArguments = function(obj) {
+  559 BASE           return obj && _.isNumber(obj.length) && !obj.concat && !obj.substr && !obj.apply && !propertyIsEnumerable.call(obj, 'length');
+  560 BASE         };
+  561 BASE       
+  562 BASE         // Is a given value a function?
+  563 BASE         _.isFunction = function(obj) {
+  564 BASE           return !!(obj && obj.constructor && obj.call && obj.apply);
+  565 BASE         };
+  566 BASE       
+  567 BASE         // Is a given value a string?
+  568 BASE         _.isString = function(obj) {
+  569 BASE           return !!(obj === '' || (obj && obj.charCodeAt && obj.substr));
+  570 BASE         };
+  571 BASE       
+  572 BASE         // Is a given value a number?
+  573 BASE         _.isNumber = function(obj) {
+  574 BASE           return (obj === +obj) || (toString.call(obj) === '[object Number]');
+  575 BASE         };
+  576 BASE       
+  577 BASE         // Is a given value a date?
+  578 BASE         _.isDate = function(obj) {
+  579 BASE           return !!(obj && obj.getTimezoneOffset && obj.setUTCFullYear);
+  580 BASE         };
+  581 BASE       
+  582 BASE         // Is the given value a regular expression?
+  583 BASE         _.isRegExp = function(obj) {
+  584 BASE           return !!(obj && obj.test && obj.exec && (obj.ignoreCase || obj.ignoreCase === false));
+  585 BASE         };
+  586 BASE       
+  587 BASE         // Is the given value NaN -- this one is interesting. NaN != NaN, and
+  588 BASE         // isNaN(undefined) == true, so we make sure it's a number first.
+  589 BASE         _.isNaN = function(obj) {
+  590 BASE           return _.isNumber(obj) && isNaN(obj);
+  591 BASE         };
+  592 BASE       
+  593 BASE         // Is a given value equal to null?
+  594 BASE         _.isNull = function(obj) {
+  595 BASE           return obj === null;
+  596 BASE         };
+  597 BASE       
+  598 BASE         // Is a given variable undefined?
+  599 BASE         _.isUndefined = function(obj) {
+  600 BASE           return typeof obj == 'undefined';
+  601 BASE         };
+  602 BASE       
+  603 BASE         // -------------------------- Utility Functions: ----------------------------
+  604 BASE       
+  605 BASE         // Run Underscore.js in noConflict mode, returning the '_' variable to its
+  606 BASE         // previous owner. Returns a reference to the Underscore object.
+  607 BASE         _.noConflict = function() {
+  608 BASE           root._ = previousUnderscore;
+  609 BASE           return this;
+  610 BASE         };
+  611 BASE       
+  612 BASE         // Keep the identity function around for default iterators.
+  613 BASE         _.identity = function(value) {
+  614 BASE           return value;
+  615 BASE         };
+  616 R            
+  617 R            // run a function n times.  
+  618 R            // looks good in wrapper form:
+  619 R            //    _(3).times(alert)
+  620 R            _.times = function (n, fn, context) {
+  621 R              for (var i=0; i < n; i++)  fn.call(context, i)
+  622 R            };
+  623 BASE       
+  624 BASE         // Break out of the middle of an iteration.
+  625 BASE         _.breakLoop = function() {
+  626 BASE           throw breaker;
+  627 BASE         };
+  628 BASE       
+  629 BASE         // Generate a unique integer id (unique within the entire client session).
+  630 BASE         // Useful for temporary DOM ids.
+  631 BASE         var idCounter = 0;
+  632 BASE         _.uniqueId = function(prefix) {
+  633 BASE           var id = idCounter++;
+  634 BASE           return prefix ? prefix + id : id;
+  635 BASE         };
+  636 BASE       
+  637 BASE         // By default, Underscore uses ERB-style template delimiters, change the
+  638 BASE         // following template settings to use alternative delimiters.
+  639 BASE         _.templateSettings = {
+  640 BASE           start       : '<%',
+  641 BASE           end         : '%>',
+  642 BASE           interpolate : /<%=(.+?)%>/g
+  643 BASE         };
+  644 BASE       
+  645 BASE         // JavaScript templating a-la ERB, pilfered from John Resig's
+  646 BASE         // "Secrets of the JavaScript Ninja", page 83.
+  647 BASE         // Single-quote fix from Rick Strahl's version.
+  648 BASE         _.template = function(str, data) {
+  649 BASE           var c  = _.templateSettings;
+  650 BASE           var fn = new Function('obj',
+  651 BASE             'var p=[],print=function(){p.push.apply(p,arguments);};' +
+  652 BASE             'with(obj){p.push(\'' +
+  653 BASE             str.replace(/[\r\t\n]/g, " ")
+  654 L                   .replace(new RegExp("'(?=[^"+c.end[0]+"]*"+escapeRegExp(c.end)+")","g"),"\t")
+  655 BASE                .split("'").join("\\'")
+  656 BASE                .split("\t").join("'")
+  657 BASE                .replace(c.interpolate, "',$1,'")
+  658 BASE                .split(c.start).join("');")
+  659 BASE                .split(c.end).join("p.push('")
+  660 BASE                + "');}return p.join('');");
+  661 BASE           return data ? fn(data) : fn;
+  662 BASE         };
+  663 BASE       
+  664 BASE         // ------------------------------- Aliases ----------------------------------
+  665 BASE       
+  666 R            _.alias('forEach', 'each').
+  667 R              alias('reduce', 'foldl', 'inject').
+  668 R              alias('reduceRight', 'foldr').
+  669 R              alias('filter', 'select').
+  670 R              alias('every', 'all').
+  671 R              alias('some', 'any').
+  672 R              alias('first', 'head').
+  673 R              alias('rest', 'tail').
+  674 R              alias('functions', 'methods');
+  675 BASE       
+  676 BASE         // ------------------------ Setup the OOP Wrapper: --------------------------
+  677 BASE       
+  678 BASE         // Helper function to continue chaining intermediate results.
+  679 BASE         var result = function(obj, chain) {
+  680 BASE           return chain ? _(obj).chain() : obj;
+  681 BASE         };
+  682 BASE       
+  683 BASE         // Add all of the Underscore functions to the wrapper object.
+  684 R            each(_.functions(_), function(name) {
+  685 BASE           var method = _[name];
+  686 BASE           wrapper.prototype[name] = function() {
+  687 BASE             var args = _.toArray(arguments);
+  688 BASE             unshift.call(args, this._wrapped);
+  689 BASE             return result(method.apply(_, args), this._chain);
+  690 BASE           };
+  691 BASE         });
+  692 BASE       
+  693 BASE         // Add all mutator Array functions to the wrapper.
+  694 R            each(['pop', 'push', 'reverse', 'shift', 'sort', 'splice', 'unshift'], function(name) {
+  695 R              var method = ArrayPrototype[name];
+  696 BASE           wrapper.prototype[name] = function() {
+  697 BASE             method.apply(this._wrapped, arguments);
+  698 BASE             return result(this._wrapped, this._chain);
+  699 BASE           };
+  700 BASE         });
+  701 BASE       
+  702 BASE         // Add all accessor Array functions to the wrapper.
+  703 R            each(['concat', 'join', 'slice'], function(name) {
+  704 R              var method = ArrayPrototype[name];
+  705 BASE           wrapper.prototype[name] = function() {
+  706 BASE             return result(method.apply(this._wrapped, arguments), this._chain);
+  707 BASE           };
+  708 BASE         });
+  709 BASE       
+  710 BASE         // Start chaining a wrapped Underscore object.
+  711 BASE         wrapper.prototype.chain = function() {
+  712 BASE           this._chain = true;
+  713 BASE           return this;
+  714 BASE         };
+  715 BASE       
+  716 BASE         // Extracts the result from a wrapped and chained object.
+  717 BASE         wrapper.prototype.value = function() {
+  718 BASE           return this._wrapped;
+  719 BASE         };
+  720 BASE       
+  721 BASE       })();

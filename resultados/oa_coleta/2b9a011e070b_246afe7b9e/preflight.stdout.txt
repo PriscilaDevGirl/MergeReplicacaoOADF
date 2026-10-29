@@ -1,0 +1,10 @@
+{
+  "static_feature_warnings": [
+    {
+      "file": "C:\\Users\\Convidado!\\OneDrive\\Documentos\\ChatGPT\\replicação\\experimentos\\oa_coleta\\2b9a011e070b_246afe7b9e\\merge.js",
+      "line": 316,
+      "feature": "setTimeout"
+    }
+  ]
+}
+PREFLIGHT_OK

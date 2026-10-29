@@ -1,0 +1,22 @@
+{
+  "sample_id": "e863fbf285f7_246afe7b9e",
+  "project_url": "https://github.com/jashkenas/underscore.git",
+  "merge_sha": "e863fbf285f75063a982332d55926e5cc85f1626",
+  "left_sha": "2ba87d6b44f6c302bbb87635a2c5164337d0fcad",
+  "right_sha": "76cccb6a2dc58b71811e4cc4ce5733a2b11e959f",
+  "base_sha": "0ed4212ec6d9217ce43d8bf566c411f96a052c5c",
+  "committer_date": "2009-12-09T12:07:24-05:00",
+  "file_path": "underscore.js",
+  "extension": ".js",
+  "four_versions_present": true,
+  "missing_versions": "",
+  "exported": true,
+  "semantic_label": "unknown",
+  "dynamic_analysis": "not_run",
+  "sha256": {
+    "base": "53fe9e815c94aea8e19e1ab6001a0c713902b58c4f335e2d51188b7fd90cc2bb",
+    "left": "d19b6d35ccc5b7e44beec00ad7dfd24bc22e8e1f1d50a835bc6f4f584caf7991",
+    "right": "1bb30f74db5a27f1bff48ebea6c0d776df441dfe306a95b97524fad49cf84efb",
+    "merge": "7b11ad304027dafd9fa184579d98801638400d62265c10edf3e0301d78b26a7b"
+  }
+}

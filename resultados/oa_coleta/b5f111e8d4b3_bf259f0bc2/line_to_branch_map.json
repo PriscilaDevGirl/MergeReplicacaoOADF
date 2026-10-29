@@ -1,0 +1,274 @@
+{
+  "runtime_path": "C:\\Users\\Convidado!\\OneDrive\\Documentos\\ChatGPT\\replicação\\experimentos\\oa_coleta\\b5f111e8d4b3_bf259f0bc2\\merge.js",
+  "source_path": "test/utility.js",
+  "source_sha256": "50a5583a3005224602ec2dcf69a4a0dcd1a5bcc0c105c2415edce147eea7fa61",
+  "merge_sha": "b5f111e8d4b3bbe9ece4ebac39f91d10ea11b7db",
+  "left_sha": "f8e939d30ac53ba672e0f94a20f680d2b6badcfa",
+  "right_sha": "4ed79d5f778e8e8eb5fa0232545ac719cf4c9d42",
+  "base_sha": "86e6dd58c2817b40a1249e452cc915f3375e79a5",
+  "lines": {
+    "1": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "2": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "3": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "4": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "5": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "6": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "7": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "8": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "9": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "10": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "11": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "12": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "13": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "14": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "15": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "16": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "17": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "18": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "19": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "20": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "21": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "22": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "23": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "24": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "25": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "26": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "27": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "28": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "29": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "30": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "31": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "32": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "33": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "34": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 34
+        }
+      ]
+    },
+    "35": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 35
+        }
+      ]
+    },
+    "36": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 36
+        }
+      ]
+    },
+    "37": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 37
+        }
+      ]
+    },
+    "38": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "39": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 39
+        }
+      ]
+    },
+    "40": {
+      "origin": "R",
+      "evidence": [
+        {
+          "branch": "R",
+          "parent_line": 40
+        }
+      ]
+    },
+    "41": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "42": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "43": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "44": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "45": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "46": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "47": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "48": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "49": {
+      "origin": "L",
+      "evidence": [
+        {
+          "branch": "L",
+          "parent_line": 49
+        }
+      ]
+    },
+    "50": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "51": {
+      "origin": "L",
+      "evidence": [
+        {
+          "branch": "L",
+          "parent_line": 51
+        }
+      ]
+    },
+    "52": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "53": {
+      "origin": "BASE",
+      "evidence": []
+    },
+    "54": {
+      "origin": "BASE",
+      "evidence": []
+    }
+  },
+  "method": "Git zero-context hunks; changed parent lines preserved in merge",
+  "cautions": [
+    "Heuristic diff alignment, not semantic provenance",
+    "No move/rename inference",
+    "SHARED and MERGE_ONLY require review; removed lines have no merge location",
+    "Line-level map does not separate operations on the same line"
+  ]
+}
