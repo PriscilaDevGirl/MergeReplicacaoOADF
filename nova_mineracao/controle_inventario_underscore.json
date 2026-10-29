@@ -1,0 +1,16 @@
+{
+  "frozen_sha": "5c1e5f686f8500af9c9d15614ed60289d6d35d6b",
+  "supplied_revision": "5c1e5f686f8500af9c9d15614ed60289d6d35d6b",
+  "history_scope": "all ancestors reachable from the frozen SHA; not all server branches",
+  "shallow": false,
+  "git_version": "git version 2.55.0.windows.5",
+  "collected_at_utc": "2026-10-29T16:42:26.983047+00:00",
+  "commits_all_history": 2903,
+  "two_parent_merges_all_history": 829,
+  "period_since_utc": null,
+  "period_until_utc": null,
+  "commits_in_period": 2903,
+  "two_parent_merges_in_period": 829,
+  "counts_include_merge_commits": true,
+  "note": "Inventory only. No global ranking, candidate selection, or language eligibility claim."
+}

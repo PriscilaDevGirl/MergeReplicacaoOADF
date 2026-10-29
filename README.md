@@ -2,6 +2,8 @@
 
 Este repositório reúne **a mineração de repositórios, os critérios de seleção e os resultados da coleta**. O objetivo atual é preparar cenários rastreáveis para pesquisa de integração de software.
 
+**Reinício metodológico em definição:** estamos preparando uma nova seleção baseada em contagem de commits. O [protocolo em definição](nova_mineracao/PROTOCOLO_EM_DEFINICAO.md) registra as decisões pendentes. Os resultados abaixo continuam sendo do piloto anterior; ainda não existe uma nova amostra selecionada por ranking.
+
 ## Resultados da mineração
 
 | Etapa | Projeto | Resultado |
